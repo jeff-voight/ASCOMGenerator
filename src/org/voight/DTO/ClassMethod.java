@@ -15,18 +15,20 @@ import java.util.List;
 public final class ClassMethod {
     private String methodName;
     private String returnType;
-    private List<MethodParameter> parameters;
+    private String parameters;
+    protected String remarks;
+    protected String summary;
     
     public ClassMethod(String methodName){
         setMethodName(methodName);
         returnType="void";
-        parameters=new ArrayList();
+        parameters="";
     }
     
-    public ClassMethod(String methodName, String returnType, List<MethodParameter> parameters){
+    public ClassMethod(String methodName, String returnType, String parameters){
         this(methodName);
         setReturnType(returnType);
-        addParameters(parameters);
+        addMethodParameters(parameters);
     }
     
     public void setReturnType(String returnType){
@@ -34,9 +36,9 @@ public final class ClassMethod {
         this.returnType=returnType;
     }
     
-    public void addParameters(List<MethodParameter> parameters){
+    public void addMethodParameters(String parameters){
         // TO DO: Sanity check parameters
-        this.parameters.addAll(parameters);
+        this.parameters=parameters;
     }
 
     private void setMethodName(String methodName) {
@@ -44,7 +46,7 @@ public final class ClassMethod {
         this.methodName=methodName;
     }
     
-    public List<MethodParameter> getParameters(){
+    public String getParameters(){
         return parameters;
     }
     
@@ -54,5 +56,33 @@ public final class ClassMethod {
     
     public String getMethodName(){
         return methodName;
+    }
+
+    /**
+     * @return the remarks
+     */
+    public String getRemarks() {
+        return remarks;
+    }
+
+    /**
+     * @param remarks the remarks to set
+     */
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    /**
+     * @return the summary
+     */
+    public String getSummary() {
+        return summary;
+    }
+
+    /**
+     * @param summary the summary to set
+     */
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 }

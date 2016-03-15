@@ -71,7 +71,7 @@ public class XMLToJava {
         StringBuilder sb=new StringBuilder();
         sb.append("package "+thePackage+";\n\n");
         sb.append("/*\n"+theClass.getSummary()+"\n\n"+theClass.getRemarks()+"\n*/\n");
-        sb.append("public Class "+theClass.getClassName()+"{\n\n");
+        sb.append("public class "+theClass.getClassName()+"{\n\n");
         // Now, make the class properties. We'll do this again to make all the setters
         // and getters after the constructors and methods.
         List<ClassProperty> theProperties=theClass.getProperties();
@@ -86,7 +86,11 @@ public class XMLToJava {
         while(methIt.hasNext()){
             ClassMethod method=methIt.next();
             sb.append("\n\n/*\n"+method.getSummary()+"\n"+method.getRemarks()+"\n*/\n");
-            sb.append("public "+method.getReturnType()+" "+method.getMethodName()
+            String methodName=method.getMethodName();
+            if(methodName.equals("#ctor")){
+                methodName=theClass.getClassName();
+            }
+            sb.append("public "+method.getReturnType()+" "+methodName
                     +"("+method.getParameters()+"){\nreturn null;\n}\n");
         }
         // Methods out of the way. Now, back to the properties setters and getters
@@ -184,7 +188,7 @@ public class XMLToJava {
                         m.setSummary(summary);                        
                         System.out.println("Summary: " + summary);
                         System.out.println("Remarks: " + remarks);
-                        cf.addProperty(new ClassProperty(propertyName));
+                        cf.addMethod(m);
                     }
                 }
             }

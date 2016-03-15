@@ -26,7 +26,7 @@ public final class ClassMethod {
     }
     
     public ClassMethod(String methodName, String returnType, String parameters){
-        this(methodName);
+        this.setMethodName(methodName);
         setReturnType(returnType);
         addMethodParameters(parameters);
     }
@@ -38,11 +38,13 @@ public final class ClassMethod {
     
     public void addMethodParameters(String parameters){
         // TO DO: Sanity check parameters
+        parameters=parameters.replaceAll("System.", "");
         this.parameters=parameters;
     }
 
     private void setMethodName(String methodName) {
         // TO DO: Sanity check method name
+        methodName=ClassFile.extractObjectName(methodName);
         this.methodName=methodName;
     }
     
@@ -55,6 +57,7 @@ public final class ClassMethod {
     }
     
     public String getMethodName(){
+        
         return methodName;
     }
 

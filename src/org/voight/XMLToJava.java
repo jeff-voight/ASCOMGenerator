@@ -153,7 +153,7 @@ public class XMLToJava {
                         p.setSummary(summary);                        
                         System.out.println("Summary: " + summary);
                         System.out.println("Remarks: " + remarks);
-                        cf.addProperty(new ClassProperty(propertyName));
+                        cf.addProperty(p);
                     }
                 }
             }

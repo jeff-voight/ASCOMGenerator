@@ -17,73 +17,192 @@ It is NOT intended as a general purpose environmental sensor system.
 public class ObservingConditions{
 
 /*
-null
-null
+
+            Gets and sets the time period over which observations will be averaged
+            
+
+            Mandatory property, must be implemented, can NOT throw a PropertyNotImplementedException
+            This property should return the time period (hours) over which sensor readings will be averaged. If your driver is delivering instantaneous sensor readings this property should return a value of 0.0.
+            Please resist the temptation to throw exceptions when clients query sensor properties when insufficient time has passed to get a true average reading. 
+            A best estimate of the average sensor value should be returned in these situations.  
+            
 */
 private double AveragePeriod;
 /*
-null
-null
+
+            Amount of sky obscured by cloud
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            This property should return a value between 0.0 and 100.0 where 0.0 = clear sky and 100.0 = 100% cloud coverage
+            
 */
 private double CloudCover;
 /*
-null
-null
+
+            Atmospheric dew point at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException when the  property also throws a PropertyNotImplementedException.
+            Mandatory property, must NOT throw a PropertyNotImplementedException when the  property is implemented.
+            The units of this property are degrees Celsius. Driver and application authors can use the  method
+            to convert these units to and from degrees Farenheit.
+            The ASCOM specification requires that DewPoint and Humidity are either both implemented or both throw PropertyNotImplementedExceptions. It is not allowed for 
+            one to be implemented and the other to throw a PropertyNotImplementedException. The Utilities component contains methods ( and 
+            ) to convert DewPoint to Humidity and vice versa given the ambient temperature.
+            This property should return a value between 0.0 and 100.0 where 0.0 = 0% relative humidity and 100.0 = 100% relative humidity.
+            
 */
 private double DewPoint;
 /*
-null
-null
+
+            Atmospheric humidity at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException when the  property also throws a PropertyNotImplementedException.
+            Mandatory property, must NOT throw a PropertyNotImplementedException when the  property is implemented.
+            The ASCOM specification requires that DewPoint and Humidity are either both implemented or both throw PropertyNotImplementedExceptions. It is not allowed for 
+            one to be implemented and the other to throw a PropertyNotImplementedException. The Utilities component contains methods ( and 
+            ) to convert DewPoint to Humidity and vice versa given the ambient temperature.
+            
 */
 private double Humidity;
 /*
-null
-null
+
+            Atmospheric pressure at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are hectoPascals. Client and driver authors can use the method 
+            to convert these units to and from milliBar, mm of mercury and inches of mercury.
+            This must be the pressure at the observatory altitude and not the adjusted pressure at sea level.
+            Please check whether your pressure sensor delivers local observatory pressure or sea level pressure and, if it returns sea level pressure, 
+            adjust this to actual pressure at the observatory's altitude before returning a value to the client.
+            The  method can be used to effect this adjustment.
+            
+            
 */
 private double Pressure;
 /*
-null
-null
+
+            Rain rate at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are millimetres per hour. Client and driver authors can use the method 
+            to convert these units to and from inches per hour.
+            This property can be interpreted as 0.0 = Dry any positive nonzero value = wet.
+            Rainfall intensity is classified according to the rate of precipitation:
+            
+            Light rain — when the precipitation rate is < 2.5 mm (0.098 in) per hour
+            Moderate rain — when the precipitation rate is between 2.5 mm (0.098 in) - 7.6 mm (0.30 in) or 10 mm (0.39 in) per hour
+            Heavy rain — when the precipitation rate is > 7.6 mm (0.30 in) per hour, or between 10 mm (0.39 in) and 50 mm (2.0 in) per hour
+            Violent rain — when the precipitation rate is > 50 mm (2.0 in) per hour
+            
+            
 */
 private double RainRate;
 /*
-null
-null
+
+            Sky brightness at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            This property returns the sky brightness measured in Lux.
+            Luminance Examples in Lux
+            
+            
+            IlluminanceSurfaces illuminated by:
+            
+            0.0001 luxMoonless, overcast night sky (starlight)
+            0.002 luxMoonless clear night sky with airglow
+            0.27–1.0 luxFull moon on a clear night
+            3.4 luxDark limit of civil twilight under a clear sky
+            50 luxFamily living room lights (Australia, 1998)
+            80 luxOffice building hallway/toilet lighting
+            100 luxVery dark overcast day
+            320–500 luxOffice lighting
+            400 luxSunrise or sunset on a clear day.
+            1000 luxOvercast day; typical TV studio lighting
+            10000–25000 luxFull daylight (not direct sun)
+            32000–100000 luxDirect sunlight
+            
+            
 */
 private double SkyBrightness;
 /*
-null
-null
+
+            Sky quality at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            
 */
 private double SkyQuality;
 /*
-null
-null
+
+            Seeing at the observatory measured as the average star full width half maximum (FWHM in arc secs) within a star field.
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            
 */
 private double StarFWHM;
 /*
-null
-null
+
+            Sky temperature at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are degrees Celsius. Driver and application authors can use the  method
+            to convert these units to and from degrees Farenheit.
+            This is expected to be returned by an infra-red sensor looking at the sky. The lower the temperature the more the sky is likely to be clear.
+            
 */
 private double SkyTemperature;
 /*
-null
-null
+
+            Temperature at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are degrees Celsius. Driver and application authors can use the  method
+            to convert these units to and from degrees Farenheit.
+            This is expected to be the ambient temperature at the observatory.
+            
 */
 private double Temperature;
 /*
-null
-null
+
+            Wind direction at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The returned value must be between 0.0 and 360.0, interpreted according to the metereological standard, where a special value of 0.0 is returned when the wind speed is 0.0. 
+            Wind direction is measured clockwise from north, through east, where East=90.0, South=180.0, West=270.0 and North=360.0.
+            
 */
 private double WindDirection;
 /*
-null
-null
+
+            Peak 3 second wind gust at the observatory over the last 2 minutes
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are metres per second. Driver and application authors can use the  method
+            to convert these units to and from miles per hour or knots.
+            
 */
 private double WindGust;
 /*
-null
-null
+
+            Wind speed at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are metres per second. Driver and application authors can use the  method
+            to convert these units to and from miles per hour or knots.
+            
 */
 private double WindSpeed;
 
@@ -156,224 +275,462 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Gets and sets the time period over which observations will be averaged
+            
+
+            Mandatory property, must be implemented, can NOT throw a PropertyNotImplementedException
+            This property should return the time period (hours) over which sensor readings will be averaged. If your driver is delivering instantaneous sensor readings this property should return a value of 0.0.
+            Please resist the temptation to throw exceptions when clients query sensor properties when insufficient time has passed to get a true average reading. 
+            A best estimate of the average sensor value should be returned in these situations.  
+            
 */
 public void setAveragePeriod(double _theValue){
 this.AveragePeriod=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Gets and sets the time period over which observations will be averaged
+            
+
+            Mandatory property, must be implemented, can NOT throw a PropertyNotImplementedException
+            This property should return the time period (hours) over which sensor readings will be averaged. If your driver is delivering instantaneous sensor readings this property should return a value of 0.0.
+            Please resist the temptation to throw exceptions when clients query sensor properties when insufficient time has passed to get a true average reading. 
+            A best estimate of the average sensor value should be returned in these situations.  
+            
 */
 public double getAveragePeriod(){
 return AveragePeriod;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Amount of sky obscured by cloud
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            This property should return a value between 0.0 and 100.0 where 0.0 = clear sky and 100.0 = 100% cloud coverage
+            
 */
 public void setCloudCover(double _theValue){
 this.CloudCover=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Amount of sky obscured by cloud
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            This property should return a value between 0.0 and 100.0 where 0.0 = clear sky and 100.0 = 100% cloud coverage
+            
 */
 public double getCloudCover(){
 return CloudCover;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Atmospheric dew point at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException when the  property also throws a PropertyNotImplementedException.
+            Mandatory property, must NOT throw a PropertyNotImplementedException when the  property is implemented.
+            The units of this property are degrees Celsius. Driver and application authors can use the  method
+            to convert these units to and from degrees Farenheit.
+            The ASCOM specification requires that DewPoint and Humidity are either both implemented or both throw PropertyNotImplementedExceptions. It is not allowed for 
+            one to be implemented and the other to throw a PropertyNotImplementedException. The Utilities component contains methods ( and 
+            ) to convert DewPoint to Humidity and vice versa given the ambient temperature.
+            This property should return a value between 0.0 and 100.0 where 0.0 = 0% relative humidity and 100.0 = 100% relative humidity.
+            
 */
 public void setDewPoint(double _theValue){
 this.DewPoint=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Atmospheric dew point at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException when the  property also throws a PropertyNotImplementedException.
+            Mandatory property, must NOT throw a PropertyNotImplementedException when the  property is implemented.
+            The units of this property are degrees Celsius. Driver and application authors can use the  method
+            to convert these units to and from degrees Farenheit.
+            The ASCOM specification requires that DewPoint and Humidity are either both implemented or both throw PropertyNotImplementedExceptions. It is not allowed for 
+            one to be implemented and the other to throw a PropertyNotImplementedException. The Utilities component contains methods ( and 
+            ) to convert DewPoint to Humidity and vice versa given the ambient temperature.
+            This property should return a value between 0.0 and 100.0 where 0.0 = 0% relative humidity and 100.0 = 100% relative humidity.
+            
 */
 public double getDewPoint(){
 return DewPoint;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Atmospheric humidity at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException when the  property also throws a PropertyNotImplementedException.
+            Mandatory property, must NOT throw a PropertyNotImplementedException when the  property is implemented.
+            The ASCOM specification requires that DewPoint and Humidity are either both implemented or both throw PropertyNotImplementedExceptions. It is not allowed for 
+            one to be implemented and the other to throw a PropertyNotImplementedException. The Utilities component contains methods ( and 
+            ) to convert DewPoint to Humidity and vice versa given the ambient temperature.
+            
 */
 public void setHumidity(double _theValue){
 this.Humidity=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Atmospheric humidity at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException when the  property also throws a PropertyNotImplementedException.
+            Mandatory property, must NOT throw a PropertyNotImplementedException when the  property is implemented.
+            The ASCOM specification requires that DewPoint and Humidity are either both implemented or both throw PropertyNotImplementedExceptions. It is not allowed for 
+            one to be implemented and the other to throw a PropertyNotImplementedException. The Utilities component contains methods ( and 
+            ) to convert DewPoint to Humidity and vice versa given the ambient temperature.
+            
 */
 public double getHumidity(){
 return Humidity;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Atmospheric pressure at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are hectoPascals. Client and driver authors can use the method 
+            to convert these units to and from milliBar, mm of mercury and inches of mercury.
+            This must be the pressure at the observatory altitude and not the adjusted pressure at sea level.
+            Please check whether your pressure sensor delivers local observatory pressure or sea level pressure and, if it returns sea level pressure, 
+            adjust this to actual pressure at the observatory's altitude before returning a value to the client.
+            The  method can be used to effect this adjustment.
+            
+            
 */
 public void setPressure(double _theValue){
 this.Pressure=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Atmospheric pressure at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are hectoPascals. Client and driver authors can use the method 
+            to convert these units to and from milliBar, mm of mercury and inches of mercury.
+            This must be the pressure at the observatory altitude and not the adjusted pressure at sea level.
+            Please check whether your pressure sensor delivers local observatory pressure or sea level pressure and, if it returns sea level pressure, 
+            adjust this to actual pressure at the observatory's altitude before returning a value to the client.
+            The  method can be used to effect this adjustment.
+            
+            
 */
 public double getPressure(){
 return Pressure;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Rain rate at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are millimetres per hour. Client and driver authors can use the method 
+            to convert these units to and from inches per hour.
+            This property can be interpreted as 0.0 = Dry any positive nonzero value = wet.
+            Rainfall intensity is classified according to the rate of precipitation:
+            
+            Light rain — when the precipitation rate is < 2.5 mm (0.098 in) per hour
+            Moderate rain — when the precipitation rate is between 2.5 mm (0.098 in) - 7.6 mm (0.30 in) or 10 mm (0.39 in) per hour
+            Heavy rain — when the precipitation rate is > 7.6 mm (0.30 in) per hour, or between 10 mm (0.39 in) and 50 mm (2.0 in) per hour
+            Violent rain — when the precipitation rate is > 50 mm (2.0 in) per hour
+            
+            
 */
 public void setRainRate(double _theValue){
 this.RainRate=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Rain rate at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are millimetres per hour. Client and driver authors can use the method 
+            to convert these units to and from inches per hour.
+            This property can be interpreted as 0.0 = Dry any positive nonzero value = wet.
+            Rainfall intensity is classified according to the rate of precipitation:
+            
+            Light rain — when the precipitation rate is < 2.5 mm (0.098 in) per hour
+            Moderate rain — when the precipitation rate is between 2.5 mm (0.098 in) - 7.6 mm (0.30 in) or 10 mm (0.39 in) per hour
+            Heavy rain — when the precipitation rate is > 7.6 mm (0.30 in) per hour, or between 10 mm (0.39 in) and 50 mm (2.0 in) per hour
+            Violent rain — when the precipitation rate is > 50 mm (2.0 in) per hour
+            
+            
 */
 public double getRainRate(){
 return RainRate;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Sky brightness at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            This property returns the sky brightness measured in Lux.
+            Luminance Examples in Lux
+            
+            
+            IlluminanceSurfaces illuminated by:
+            
+            0.0001 luxMoonless, overcast night sky (starlight)
+            0.002 luxMoonless clear night sky with airglow
+            0.27–1.0 luxFull moon on a clear night
+            3.4 luxDark limit of civil twilight under a clear sky
+            50 luxFamily living room lights (Australia, 1998)
+            80 luxOffice building hallway/toilet lighting
+            100 luxVery dark overcast day
+            320–500 luxOffice lighting
+            400 luxSunrise or sunset on a clear day.
+            1000 luxOvercast day; typical TV studio lighting
+            10000–25000 luxFull daylight (not direct sun)
+            32000–100000 luxDirect sunlight
+            
+            
 */
 public void setSkyBrightness(double _theValue){
 this.SkyBrightness=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Sky brightness at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            This property returns the sky brightness measured in Lux.
+            Luminance Examples in Lux
+            
+            
+            IlluminanceSurfaces illuminated by:
+            
+            0.0001 luxMoonless, overcast night sky (starlight)
+            0.002 luxMoonless clear night sky with airglow
+            0.27–1.0 luxFull moon on a clear night
+            3.4 luxDark limit of civil twilight under a clear sky
+            50 luxFamily living room lights (Australia, 1998)
+            80 luxOffice building hallway/toilet lighting
+            100 luxVery dark overcast day
+            320–500 luxOffice lighting
+            400 luxSunrise or sunset on a clear day.
+            1000 luxOvercast day; typical TV studio lighting
+            10000–25000 luxFull daylight (not direct sun)
+            32000–100000 luxDirect sunlight
+            
+            
 */
 public double getSkyBrightness(){
 return SkyBrightness;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Sky quality at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            
 */
 public void setSkyQuality(double _theValue){
 this.SkyQuality=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Sky quality at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            
 */
 public double getSkyQuality(){
 return SkyQuality;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Seeing at the observatory measured as the average star full width half maximum (FWHM in arc secs) within a star field.
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            
 */
 public void setStarFWHM(double _theValue){
 this.StarFWHM=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Seeing at the observatory measured as the average star full width half maximum (FWHM in arc secs) within a star field.
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            
 */
 public double getStarFWHM(){
 return StarFWHM;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Sky temperature at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are degrees Celsius. Driver and application authors can use the  method
+            to convert these units to and from degrees Farenheit.
+            This is expected to be returned by an infra-red sensor looking at the sky. The lower the temperature the more the sky is likely to be clear.
+            
 */
 public void setSkyTemperature(double _theValue){
 this.SkyTemperature=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Sky temperature at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are degrees Celsius. Driver and application authors can use the  method
+            to convert these units to and from degrees Farenheit.
+            This is expected to be returned by an infra-red sensor looking at the sky. The lower the temperature the more the sky is likely to be clear.
+            
 */
 public double getSkyTemperature(){
 return SkyTemperature;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Temperature at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are degrees Celsius. Driver and application authors can use the  method
+            to convert these units to and from degrees Farenheit.
+            This is expected to be the ambient temperature at the observatory.
+            
 */
 public void setTemperature(double _theValue){
 this.Temperature=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Temperature at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are degrees Celsius. Driver and application authors can use the  method
+            to convert these units to and from degrees Farenheit.
+            This is expected to be the ambient temperature at the observatory.
+            
 */
 public double getTemperature(){
 return Temperature;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Wind direction at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The returned value must be between 0.0 and 360.0, interpreted according to the metereological standard, where a special value of 0.0 is returned when the wind speed is 0.0. 
+            Wind direction is measured clockwise from north, through east, where East=90.0, South=180.0, West=270.0 and North=360.0.
+            
 */
 public void setWindDirection(double _theValue){
 this.WindDirection=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Wind direction at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The returned value must be between 0.0 and 360.0, interpreted according to the metereological standard, where a special value of 0.0 is returned when the wind speed is 0.0. 
+            Wind direction is measured clockwise from north, through east, where East=90.0, South=180.0, West=270.0 and North=360.0.
+            
 */
 public double getWindDirection(){
 return WindDirection;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Peak 3 second wind gust at the observatory over the last 2 minutes
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are metres per second. Driver and application authors can use the  method
+            to convert these units to and from miles per hour or knots.
+            
 */
 public void setWindGust(double _theValue){
 this.WindGust=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Peak 3 second wind gust at the observatory over the last 2 minutes
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are metres per second. Driver and application authors can use the  method
+            to convert these units to and from miles per hour or knots.
+            
 */
 public double getWindGust(){
 return WindGust;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Wind speed at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are metres per second. Driver and application authors can use the  method
+            to convert these units to and from miles per hour or knots.
+            
 */
 public void setWindSpeed(double _theValue){
 this.WindSpeed=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Wind speed at the observatory
+            
+
+            Optional property, can throw a PropertyNotImplementedException
+            The units of this property are metres per second. Driver and application authors can use the  method
+            to convert these units to and from miles per hour or knots.
+            
 */
 public double getWindSpeed(){
 return WindSpeed;

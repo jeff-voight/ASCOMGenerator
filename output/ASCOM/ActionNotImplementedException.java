@@ -10,8 +10,10 @@ package ASCOM;
 public class ActionNotImplementedException{
 
 /*
-null
-null
+
+              The method that is not implemented
+            
+
 */
 private double Action;
 
@@ -61,16 +63,20 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              The method that is not implemented
+            
+
 */
 public void setAction(double _theValue){
 this.Action=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              The method that is not implemented
+            
+
 */
 public double getAction(){
 return Action;

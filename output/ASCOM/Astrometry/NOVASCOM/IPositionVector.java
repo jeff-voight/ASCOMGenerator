@@ -21,48 +21,67 @@ Objects of class PositionVector contain vectors used for positions (earth, sites
 public class IPositionVector{
 
 /*
-null
-null
+
+                The azimuth coordinate (degrees, + east)
+            
+
 */
 private double Azimuth;
 /*
-null
-null
+
+                Declination coordinate
+            
+
 */
 private double Declination;
 /*
-null
-null
+
+                Distance/Radius coordinate
+            
+
 */
 private double Distance;
 /*
-null
-null
+
+                The elevation (altitude) coordinate (degrees, + up)
+            
+Elevation is available only in PositionVectors returned from calls to 
+                Star.GetTopocentricPosition() and/or Planet.GetTopocentricPosition(). 
 */
 private double Elevation;
 /*
-null
-null
+
+                Light time from body to origin, days.
+            
+
 */
 private double LightTime;
 /*
-null
-null
+
+                RightAscension coordinate, hours
+            
+
 */
 private double RightAscension;
 /*
-null
-null
+
+                Position cartesian x component
+            
+
 */
 private double x;
 /*
-null
-null
+
+                Position cartesian y component
+            
+
 */
 private double y;
 /*
-null
-null
+
+                Position cartesian z component
+            
+
 */
 private double z;
 
@@ -136,144 +155,182 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The azimuth coordinate (degrees, + east)
+            
+
 */
 public void setAzimuth(double _theValue){
 this.Azimuth=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The azimuth coordinate (degrees, + east)
+            
+
 */
 public double getAzimuth(){
 return Azimuth;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Declination coordinate
+            
+
 */
 public void setDeclination(double _theValue){
 this.Declination=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Declination coordinate
+            
+
 */
 public double getDeclination(){
 return Declination;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Distance/Radius coordinate
+            
+
 */
 public void setDistance(double _theValue){
 this.Distance=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Distance/Radius coordinate
+            
+
 */
 public double getDistance(){
 return Distance;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The elevation (altitude) coordinate (degrees, + up)
+            
+Elevation is available only in PositionVectors returned from calls to 
+                Star.GetTopocentricPosition() and/or Planet.GetTopocentricPosition(). 
 */
 public void setElevation(double _theValue){
 this.Elevation=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The elevation (altitude) coordinate (degrees, + up)
+            
+Elevation is available only in PositionVectors returned from calls to 
+                Star.GetTopocentricPosition() and/or Planet.GetTopocentricPosition(). 
 */
 public double getElevation(){
 return Elevation;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Light time from body to origin, days.
+            
+
 */
 public void setLightTime(double _theValue){
 this.LightTime=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Light time from body to origin, days.
+            
+
 */
 public double getLightTime(){
 return LightTime;
 }
 
 /*
- Sets null
-null
+ Sets 
+                RightAscension coordinate, hours
+            
+
 */
 public void setRightAscension(double _theValue){
 this.RightAscension=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                RightAscension coordinate, hours
+            
+
 */
 public double getRightAscension(){
 return RightAscension;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Position cartesian x component
+            
+
 */
 public void setX(double _theValue){
 this.x=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Position cartesian x component
+            
+
 */
 public double getX(){
 return x;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Position cartesian y component
+            
+
 */
 public void setY(double _theValue){
 this.y=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Position cartesian y component
+            
+
 */
 public double getY(){
 return y;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Position cartesian z component
+            
+
 */
 public void setZ(double _theValue){
 this.z=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Position cartesian z component
+            
+
 */
 public double getZ(){
 return z;

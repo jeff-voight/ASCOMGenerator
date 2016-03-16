@@ -15,13 +15,23 @@ See the description of the  method for more information.
 public class IAxisRates{
 
 /*
-null
-null
+
+ Return information about the rates at which the telescope may be moved about the specified axis by the  method.
+ 
+The (symbolic) values for Index () are:
+		
+			 0 Primary axis (e.g., Hour Angle or Azimuth)
+			 1 Secondary axis (e.g., Declination or Altitude)
+			 2 Tertiary axis (e.g. imager rotator/de-rotator)
+		
+	
 */
 private double Item;
 /*
-null
-null
+
+ Number of items in the returned collection
+ 
+
 */
 private double Count;
 
@@ -48,32 +58,52 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Return information about the rates at which the telescope may be moved about the specified axis by the  method.
+ 
+The (symbolic) values for Index () are:
+		
+			 0 Primary axis (e.g., Hour Angle or Azimuth)
+			 1 Secondary axis (e.g., Declination or Altitude)
+			 2 Tertiary axis (e.g. imager rotator/de-rotator)
+		
+	
 */
 public void setItem(double _theValue){
 this.Item=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Return information about the rates at which the telescope may be moved about the specified axis by the  method.
+ 
+The (symbolic) values for Index () are:
+		
+			 0 Primary axis (e.g., Hour Angle or Azimuth)
+			 1 Secondary axis (e.g., Declination or Altitude)
+			 2 Tertiary axis (e.g. imager rotator/de-rotator)
+		
+	
 */
 public double getItem(){
 return Item;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Number of items in the returned collection
+ 
+
 */
 public void setCount(double _theValue){
 this.Count=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Number of items in the returned collection
+ 
+
 */
 public double getCount(){
 return Count;

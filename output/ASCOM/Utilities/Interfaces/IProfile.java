@@ -10,13 +10,18 @@ package ASCOM.Utilities.Interfaces;
 public class IProfile{
 
 /*
-null
-null
+
+ The type of ASCOM device for which profile data and registration services are provided 
+ (String, default = "Telescope")
+ 
+
 */
 private double DeviceType;
 /*
-null
-null
+
+ List the device types registered in the Profile store
+ 
+Use this to find which types of device are registered in the Profile store.
 */
 private double RegisteredDeviceTypes;
 
@@ -195,32 +200,42 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The type of ASCOM device for which profile data and registration services are provided 
+ (String, default = "Telescope")
+ 
+
 */
 public void setDeviceType(double _theValue){
 this.DeviceType=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The type of ASCOM device for which profile data and registration services are provided 
+ (String, default = "Telescope")
+ 
+
 */
 public double getDeviceType(){
 return DeviceType;
 }
 
 /*
- Sets null
-null
+ Sets 
+ List the device types registered in the Profile store
+ 
+Use this to find which types of device are registered in the Profile store.
 */
 public void setRegisteredDeviceTypes(double _theValue){
 this.RegisteredDeviceTypes=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ List the device types registered in the Profile store
+ 
+Use this to find which types of device are registered in the Profile store.
 */
 public double getRegisteredDeviceTypes(){
 return RegisteredDeviceTypes;

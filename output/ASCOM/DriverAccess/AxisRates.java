@@ -15,18 +15,30 @@ See the description of the  method for more information.
 public class AxisRates{
 
 /*
-null
-null
+
+            Returns the current value of the collection
+            
+
 */
 private double Current;
 /*
-null
-null
+
+            Returns the number of rate objects in the collection
+            
+
 */
 private double Count;
 /*
-null
-null
+
+            Return information about the rates at which the telescope may be moved about the specified axis by the  method.
+            
+The (symbolic) values for Index () are:
+            
+             0 Primary axis (e.g., Hour Angle or Azimuth)
+             1 Secondary axis (e.g., Declination or Altitude)
+             2 Tertiary axis (e.g. imager rotator/de-rotator) 
+            
+            
 */
 private double Item;
 
@@ -97,48 +109,72 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Returns the current value of the collection
+            
+
 */
 public void setCurrent(double _theValue){
 this.Current=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Returns the current value of the collection
+            
+
 */
 public double getCurrent(){
 return Current;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Returns the number of rate objects in the collection
+            
+
 */
 public void setCount(double _theValue){
 this.Count=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Returns the number of rate objects in the collection
+            
+
 */
 public double getCount(){
 return Count;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Return information about the rates at which the telescope may be moved about the specified axis by the  method.
+            
+The (symbolic) values for Index () are:
+            
+             0 Primary axis (e.g., Hour Angle or Azimuth)
+             1 Secondary axis (e.g., Declination or Altitude)
+             2 Tertiary axis (e.g. imager rotator/de-rotator) 
+            
+            
 */
 public void setItem(double _theValue){
 this.Item=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Return information about the rates at which the telescope may be moved about the specified axis by the  method.
+            
+The (symbolic) values for Index () are:
+            
+             0 Primary axis (e.g., Hour Angle or Azimuth)
+             1 Secondary axis (e.g., Declination or Altitude)
+             2 Tertiary axis (e.g. imager rotator/de-rotator) 
+            
+            
 */
 public double getItem(){
 return Item;

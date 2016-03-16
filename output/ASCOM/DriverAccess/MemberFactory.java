@@ -10,23 +10,31 @@ package ASCOM.DriverAccess;
 public class MemberFactory{
 
 /*
-null
-null
+
+            Returns the instance of the driver
+            
+
 */
 private double GetLateBoundObject;
 /*
-null
-null
+
+            Returns true is the driver is COM based
+            
+
 */
 private double IsComObject;
 /*
-null
-null
+
+            Returns the driver type
+            
+
 */
 private double GetObjType;
 /*
-null
-null
+
+            Returns a list of supported interfaces
+            
+
 */
 private double GetInterfaces;
 
@@ -81,64 +89,80 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Returns the instance of the driver
+            
+
 */
 public void setGetLateBoundObject(double _theValue){
 this.GetLateBoundObject=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Returns the instance of the driver
+            
+
 */
 public double getGetLateBoundObject(){
 return GetLateBoundObject;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Returns true is the driver is COM based
+            
+
 */
 public void setIsComObject(double _theValue){
 this.IsComObject=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Returns true is the driver is COM based
+            
+
 */
 public double getIsComObject(){
 return IsComObject;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Returns the driver type
+            
+
 */
 public void setGetObjType(double _theValue){
 this.GetObjType=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Returns the driver type
+            
+
 */
 public double getGetObjType(){
 return GetObjType;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Returns a list of supported interfaces
+            
+
 */
 public void setGetInterfaces(double _theValue){
 this.GetInterfaces=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Returns a list of supported interfaces
+            
+
 */
 public double getGetInterfaces(){
 return GetInterfaces;

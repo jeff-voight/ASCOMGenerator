@@ -15,18 +15,25 @@ package ASCOM;
 public class SettingsProvider{
 
 /*
-null
-null
+
+              Returns the provider's friendly name used during configuration.
+            
+
 */
 private double Name;
 /*
-null
-null
+
+              Gets the provider's friendly description.
+            
+
 */
 private double Description;
 /*
-null
-null
+
+              Gets the name of the driver or application for which settings are being managed.
+              This value is set during provider initialization and cannot be changed thereafter.
+            
+
 */
 private double ApplicationName;
 
@@ -109,48 +116,62 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Returns the provider's friendly name used during configuration.
+            
+
 */
 public void setName(double _theValue){
 this.Name=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Returns the provider's friendly name used during configuration.
+            
+
 */
 public double getName(){
 return Name;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets the provider's friendly description.
+            
+
 */
 public void setDescription(double _theValue){
 this.Description=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets the provider's friendly description.
+            
+
 */
 public double getDescription(){
 return Description;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets the name of the driver or application for which settings are being managed.
+              This value is set during provider initialization and cannot be changed thereafter.
+            
+
 */
 public void setApplicationName(double _theValue){
 this.ApplicationName=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets the name of the driver or application for which settings are being managed.
+              This value is set during provider initialization and cannot be changed thereafter.
+            
+
 */
 public double getApplicationName(){
 return ApplicationName;

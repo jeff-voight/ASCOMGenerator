@@ -18,8 +18,13 @@ package ASCOM.Controls;
 public class CadenceManager{
 
 /*
-null
-null
+
+              Gets a reference to the Singleton.
+              If the Singleton has not yet be instantiated, this causes the object
+              to be created and the constructor to execute (lazy loading).
+              This operation uses the double-checked locking pattern to ensure thread-safety.
+            
+
 */
 private double Instance;
 
@@ -79,16 +84,26 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets a reference to the Singleton.
+              If the Singleton has not yet be instantiated, this causes the object
+              to be created and the constructor to execute (lazy loading).
+              This operation uses the double-checked locking pattern to ensure thread-safety.
+            
+
 */
 public void setInstance(double _theValue){
 this.Instance=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets a reference to the Singleton.
+              If the Singleton has not yet be instantiated, this causes the object
+              to be created and the constructor to execute (lazy loading).
+              This operation uses the double-checked locking pattern to ensure thread-safety.
+            
+
 */
 public double getInstance(){
 return Instance;

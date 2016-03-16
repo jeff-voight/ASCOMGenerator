@@ -14,8 +14,10 @@ package ASCOM;
 public class ServedClassNameAttribute{
 
 /*
-null
-null
+
+              Gets or sets the 'friendly name' of the served class, as registered with the ASCOM Chooser.
+            
+
 */
 private double DisplayName;
 
@@ -31,16 +33,20 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets or sets the 'friendly name' of the served class, as registered with the ASCOM Chooser.
+            
+
 */
 public void setDisplayName(double _theValue){
 this.DisplayName=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets or sets the 'friendly name' of the served class, as registered with the ASCOM Chooser.
+            
+
 */
 public double getDisplayName(){
 return DisplayName;

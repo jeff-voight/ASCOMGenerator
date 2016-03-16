@@ -20,13 +20,19 @@ package ASCOM.Utilities;
 public class TraceLogger{
 
 /*
-null
-null
+
+ Enables or disables logging to the file.
+ 
+If this property is false then calls to LogMsg, LogStart, LogContinue and LogFinish do nothing. If True, 
+ supplied messages are written to the log file.
 */
 private double Enabled;
 /*
-null
-null
+
+ Return the full filename of the log file being created
+ 
+This call will return an empty string until the first line has been written to the log file
+ as the file is not created until required.
 */
 private double LogFileName;
 
@@ -277,32 +283,44 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Enables or disables logging to the file.
+ 
+If this property is false then calls to LogMsg, LogStart, LogContinue and LogFinish do nothing. If True, 
+ supplied messages are written to the log file.
 */
 public void setEnabled(double _theValue){
 this.Enabled=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Enables or disables logging to the file.
+ 
+If this property is false then calls to LogMsg, LogStart, LogContinue and LogFinish do nothing. If True, 
+ supplied messages are written to the log file.
 */
 public double getEnabled(){
 return Enabled;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Return the full filename of the log file being created
+ 
+This call will return an empty string until the first line has been written to the log file
+ as the file is not created until required.
 */
 public void setLogFileName(double _theValue){
 this.LogFileName=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Return the full filename of the log file being created
+ 
+This call will return an empty string until the first line has been written to the log file
+ as the file is not created until required.
 */
 public double getLogFileName(){
 return LogFileName;

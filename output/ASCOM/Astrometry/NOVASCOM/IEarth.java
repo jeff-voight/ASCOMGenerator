@@ -25,58 +25,81 @@ Objects of class Earth represent the "state" of the Earth at a given Terrestrial
 public class IEarth{
 
 /*
-null
-null
+
+                Earth barycentric position
+            
+
 */
 private double BarycentricPosition;
 /*
-null
-null
+
+                Earth barycentric time 
+            
+
 */
 private double BarycentricTime;
 /*
-null
-null
+
+                Earth barycentric velocity 
+            
+
 */
 private double BarycentricVelocity;
 /*
-null
-null
+
+                Ephemeris object used to provide the position of the Earth.
+            
+
+                Setting this is optional, if not set, the internal Kepler engine will be used.
 */
 private double EarthEphemeris;
 /*
-null
-null
+
+                Earth equation of equinoxes 
+            
+
 */
 private double EquationOfEquinoxes;
 /*
-null
-null
+
+                Earth heliocentric position
+            
+
 */
 private double HeliocentricPosition;
 /*
-null
-null
+
+                Earth heliocentric velocity 
+            
+
 */
 private double HeliocentricVelocity;
 /*
-null
-null
+
+                Earth mean objiquity
+            
+
 */
 private double MeanObliquity;
 /*
-null
-null
+
+                Earth nutation in longitude 
+            
+
 */
 private double NutationInLongitude;
 /*
-null
-null
+
+                Earth nutation in obliquity 
+            
+
 */
 private double NutationInObliquity;
 /*
-null
-null
+
+                Earth true obliquity 
+            
+
 */
 private double TrueObliquity;
 
@@ -92,176 +115,222 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Earth barycentric position
+            
+
 */
 public void setBarycentricPosition(double _theValue){
 this.BarycentricPosition=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Earth barycentric position
+            
+
 */
 public double getBarycentricPosition(){
 return BarycentricPosition;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Earth barycentric time 
+            
+
 */
 public void setBarycentricTime(double _theValue){
 this.BarycentricTime=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Earth barycentric time 
+            
+
 */
 public double getBarycentricTime(){
 return BarycentricTime;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Earth barycentric velocity 
+            
+
 */
 public void setBarycentricVelocity(double _theValue){
 this.BarycentricVelocity=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Earth barycentric velocity 
+            
+
 */
 public double getBarycentricVelocity(){
 return BarycentricVelocity;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Ephemeris object used to provide the position of the Earth.
+            
+
+                Setting this is optional, if not set, the internal Kepler engine will be used.
 */
 public void setEarthEphemeris(double _theValue){
 this.EarthEphemeris=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Ephemeris object used to provide the position of the Earth.
+            
+
+                Setting this is optional, if not set, the internal Kepler engine will be used.
 */
 public double getEarthEphemeris(){
 return EarthEphemeris;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Earth equation of equinoxes 
+            
+
 */
 public void setEquationOfEquinoxes(double _theValue){
 this.EquationOfEquinoxes=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Earth equation of equinoxes 
+            
+
 */
 public double getEquationOfEquinoxes(){
 return EquationOfEquinoxes;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Earth heliocentric position
+            
+
 */
 public void setHeliocentricPosition(double _theValue){
 this.HeliocentricPosition=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Earth heliocentric position
+            
+
 */
 public double getHeliocentricPosition(){
 return HeliocentricPosition;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Earth heliocentric velocity 
+            
+
 */
 public void setHeliocentricVelocity(double _theValue){
 this.HeliocentricVelocity=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Earth heliocentric velocity 
+            
+
 */
 public double getHeliocentricVelocity(){
 return HeliocentricVelocity;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Earth mean objiquity
+            
+
 */
 public void setMeanObliquity(double _theValue){
 this.MeanObliquity=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Earth mean objiquity
+            
+
 */
 public double getMeanObliquity(){
 return MeanObliquity;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Earth nutation in longitude 
+            
+
 */
 public void setNutationInLongitude(double _theValue){
 this.NutationInLongitude=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Earth nutation in longitude 
+            
+
 */
 public double getNutationInLongitude(){
 return NutationInLongitude;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Earth nutation in obliquity 
+            
+
 */
 public void setNutationInObliquity(double _theValue){
 this.NutationInObliquity=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Earth nutation in obliquity 
+            
+
 */
 public double getNutationInObliquity(){
 return NutationInObliquity;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Earth true obliquity 
+            
+
 */
 public void setTrueObliquity(double _theValue){
 this.TrueObliquity=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Earth true obliquity 
+            
+
 */
 public double getTrueObliquity(){
 return TrueObliquity;

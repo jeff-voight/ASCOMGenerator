@@ -14,8 +14,10 @@ package ASCOM;
 public class NotImplementedException{
 
 /*
-null
-null
+
+              The property/accessor or method that is not implemented
+            
+
 */
 private double PropertyOrMethod;
 
@@ -65,16 +67,20 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              The property/accessor or method that is not implemented
+            
+
 */
 public void setPropertyOrMethod(double _theValue){
 this.PropertyOrMethod=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              The property/accessor or method that is not implemented
+            
+
 */
 public double getPropertyOrMethod(){
 return PropertyOrMethod;

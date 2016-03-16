@@ -15,108 +15,337 @@ It is NOT intended as a general purpose environmental sensor system. The Action 
 public class IObservingConditions{
 
 /*
-null
-null
+
+ Set to True to connect to the device hardware. Set to False to disconnect from the device hardware.
+ You can also read the property to check whether it is connected. This reports the current hardware state.
+ 
+
+		Must be implementedDo not use a NotConnectedException here, that exception is for use in other methods that require a connection in order to succeed.
+ The Connected property sets and reports the state of connection to the device hardware.
+ For a hub this means that Connected will be true when the first driver connects and will only be set to false
+ when all drivers have disconnected.  A second driver may find that Connected is already true and
+ setting Connected to false does not report Connected as false.  This is not an error because the physical state is that the
+ hardware connection is still true.
+		Multiple calls setting Connected to true or false will not cause an error.
+	
 */
 private double Connected;
 /*
-null
-null
+
+ Returns a description of the device, such as manufacturer and model number. Any ASCII characters may be used. 
+ 
+Must be implemented
+	
 */
 private double Description;
 /*
-null
-null
+
+ Descriptive and version information about this ASCOM driver.
+ 
+
+		Must be implemented This string may contain line endings and may be hundreds to thousands of characters long.
+ It is intended to display detailed information on the ASCOM driver, including version and copyright data.
+ See the  property for information on the device itself.
+ To get the driver version in a parseable string, use the  property.
+ 
 */
 private double DriverInfo;
 /*
-null
-null
+
+ A string containing only the major and minor version of the driver.
+ 
+Must be implemented This must be in the form "n.n".
+ It should not be confused with the  property, which is the version of this specification supported by the 
+ driver.
+ 
 */
 private double DriverVersion;
 /*
-null
-null
+
+ The interface version number that this device supports. Must return 1 for this interface version.
+ 
+Must be implementedThis value will be incremented if the interface
+ specification is extended in the future.
+ 
 */
 private double InterfaceVersion;
 /*
-null
-null
+
+ The short name of the driver, for display purposes
+ 
+Must be implemented
+	
 */
 private double Name;
 /*
-null
-null
+
+ Returns the list of action names supported by this driver.
+ 
+Must be implemented This method must return an empty arraylist if no actions are supported. Please do not throw a 
+ .
+ This is an aid to client authors and testers who would otherwise have to repeatedly poll the driver to determine its capabilities. 
+ Returned action names may be in mixed case to enhance presentation but  will be recognised case insensitively in 
+ the Action method.
+		An array list collection has been selected as the vehicle for  action names in order to make it easier for clients to
+ determine whether a particular action is supported. This is easily done through the Contains method. Since the
+ collection is also ennumerable it is easy to use constructs such as For Each ... to operate on members without having to be concerned 
+ about hom many members are in the collection. 
+		Collections have been used in the Telescope specification for a number of years and are known to be compatible with COM. Within .NET
+ the ArrayList is the correct implementation to use as the .NET Generic methods are not compatible with COM.
+		See Action for advice on how th implement this for ObservingConditions drivers.
+	
 */
 private double SupportedActions;
 /*
-null
-null
+
+ Gets And sets the time period over which observations will be averaged
+ 
+
+		Mandatory property, must be implemented, can NOT throw a PropertyNotImplementedException
+		This property should return the time period (hours) over which sensor readings will be averaged. If your driver is delivering instantaneous sensor readings this property should return a value of 0.0.
+		Please resist the temptation to throw exceptions when clients query sensor properties when insufficient time has passed to get a true average reading. 
+ A best estimate of the average sensor value should be returned in these situations. 
+	
 */
 private double AveragePeriod;
 /*
-null
-null
+
+ Amount of sky obscured by cloud
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ This property should return a value between 0.0 and 100.0 where 0.0 = clear sky and 100.0 = 100% cloud coverage
+ 
 */
 private double CloudCover;
 /*
-null
-null
+
+ Atmospheric dew point at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException when the  property also throws a PropertyNotImplementedException.
+		Mandatory property, must NOT throw a PropertyNotImplementedException when the  property is implemented.
+		The units of this property are degrees Celsius. Driver and application authors can use the  method
+ to convert these units to and from degrees Farenhheit.
+		The ASCOM specification requires that DewPoint and Humidity are either both implemented or both throw PropertyNotImplementedExceptions. It is not allowed for 
+ one to be implemented and the other to throw a PropertyNotImplementedException. The Utilities component contains methods ( and 
+ ) to convert DewPoint to Humidity and vice versa given the ambient temperature.
+	
 */
 private double DewPoint;
 /*
-null
-null
+
+ Atmospheric humidity at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException when the  property also throws a PropertyNotImplementedException.
+		Mandatory property, must NOT throw a PropertyNotImplementedException when the  property is implemented.
+		The ASCOM specification requires that DewPoint and Humidity are either both implemented or both throw PropertyNotImplementedExceptions. It is not allowed for 
+ one to be implemented and the other to throw a PropertyNotImplementedException. The Utilities component contains methods ( and 
+ ) to convert DewPoint to Humidity and vice versa given the ambient temperature.
+		This property should return a value between 0.0 and 100.0 where 0.0 = 0% relative humidity and 100.0 = 100% relative humidity.
+	
 */
 private double Humidity;
 /*
-null
-null
+
+ Atmospheric pressure at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		The units of this property are hectoPascals. Client and driver authors can use the method 
+ to convert these units to and from milliBar, mm of mercury and inches of mercury.
+		This must be the pressure at the observatory altitude and not the adjusted pressure at sea level.
+ Please check whether your pressure sensor delivers local observatory pressure or sea level pressure and, if it returns sea level pressure, 
+ adjust this to actual pressure at the observatory's altitude before returning a value to the client.
+ The  method can be used to effect this adjustment.
+ 
+	
 */
 private double Pressure;
 /*
-null
-null
+
+ Rain rate at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		The units of this property are millimetres per hour. Client and driver authors can use the method 
+ to convert these units to and from inches per hour.
+		This property can be interpreted as 0.0 = Dry any positive nonzero value = wet.
+		Rainfall intensity is classified according to the rate of precipitation:
+		
+			Light rain — when the precipitation rate is less than 2.5 mm (0.098 in) per hour
+			Moderate rain — when the precipitation rate is between 2.5 mm (0.098 in) and 10 mm (0.39 in) per hour
+			Heavy rain — when the precipitation rate is between 10 mm (0.39 in) and 50 mm (2.0 in) per hour
+			Violent rain — when the precipitation rate is > 50 mm (2.0 in) per hour
+		
+	
 */
 private double RainRate;
 /*
-null
-null
+
+ Sky brightness at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ This property returns the sky brightness measured in Lux.
+ Luminance Examples in Lux
+		
+			
+				IlluminanceSurfaces illuminated by:
+			
+			0.0001 luxMoonless, overcast night sky (starlight)
+			0.002 luxMoonless clear night sky with airglow
+			0.27–1.0 luxFull moon on a clear night
+			3.4 luxDark limit of civil twilight under a clear sky
+			50 luxFamily living room lights (Australia, 1998)
+			80 luxOffice building hallway/toilet lighting
+			100 luxVery dark overcast day
+			320–500 luxOffice lighting
+			400 luxSunrise or sunset on a clear day.
+			1000 luxOvercast day; typical TV studio lighting
+			10000–25000 luxFull daylight (not direct sun)
+			32000–100000 luxDirect sunlight
+		
+	
 */
 private double SkyBrightness;
 /*
-null
-null
+
+ Sky quality at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		Sky quality is typically measured in units of magnitudes per square arc second. A sky quality of 20 magnitudes per square arc second means that the
+ overall sky appears with a brightness equivalent to having 1 magnitude 20 star in each square arc second of sky.
+		Examples of typical sky quality values were published by Sky and Telescope (http://www.skyandtelescope.com/astronomy-resources/rate-your-skyglow/) and, in slightly adpated form, are reproduced below:
+		
+			
+				
+				
+				
+					
+						Sky Quality (mag/arcsec2)
+					
+						Description
+				
+				
+					
+ 22.0
+					
+ By convention, this is often assumed to be the average brightness of a moonless night sky that's completely free of artificial light pollution.
+				
+				
+					
+ 21.0
+					
+ This is typical for a rural area with a medium-sized city not far away. It's comparable to the glow of the brightest section of the northern Milky Way, from Cygnus through Perseus. 
+				
+				
+					
+ 20.0
+					
+ This is typical for the outer suburbs of a major metropolis. The summer Milky Way is readily visible but severely washed out.
+				
+				
+					
+ 19.0
+					
+ Typical for a suburb with widely spaced single-family homes. It's a little brighter than a remote rural site at the end of nautical twilight, when the Sun is 12° below the horizon.
+				
+				
+					
+ 18.0
+					
+ Bright suburb or dark urban neighborhood. It's also a typical zenith skyglow at a rural site when the Moon is full. The Milky Way is invisible, or nearly so.
+				
+				
+					
+ 17.0
+					
+ Typical near the center of a major city.
+				
+				
+					
+ 13.0
+					
+ The zenith skyglow at the end of civil twilight, roughly a half hour after sunset, when the Sun is 6° below the horizon. Venus and Jupiter are easy to see, but bright stars are just beginning to appear.
+				
+				
+					
+ 7.0
+					
+ The zenith skyglow at sunrise or sunset
+				
+			
+		
+	
 */
 private double SkyQuality;
 /*
-null
-null
+
+ Seeing at the observatory measured as star full width half maximum (FWHM) in arc secs.
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+	
 */
 private double StarFWHM;
 /*
-null
-null
+
+ Sky temperature at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		The units of this property are degrees Celsius. Driver and application authors can use the  method
+ to convert these units to and from degrees Farenhheit.
+		This is expected to be returned by an infra-red sensor looking at the sky. The lower the temperature the more the sky is likely to be clear.
+	
 */
 private double SkyTemperature;
 /*
-null
-null
+
+ Temperature at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		The units of this property are degrees Celsius. Driver and application authors can use the  method
+ to convert these units to and from degrees Farenhheit.
+		This is expected to be the ambient temperature at the observatory.
+	
 */
 private double Temperature;
 /*
-null
-null
+
+ Wind direction at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ The returned value must be between 0.0 and 360.0, interpreted according to the metereological standard, where a special value of 0.0 is returned when the wind speed is 0.0. 
+ Wind direction is measured clockwise from north, through east, where East=90.0, South=180.0, West=270.0 and North=360.0.
+ 
 */
 private double WindDirection;
 /*
-null
-null
+
+ Peak 3 second wind gust at the observatory over the last 2 minutes
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ The units of this property are metres per second. Driver and application authors can use the  method
+ to convert these units to and from miles per hour or knots.
+ 
 */
 private double WindGust;
 /*
-null
-null
+
+ Wind speed at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ The units of this property are metres per second. Driver and application authors can use the  method
+ to convert these units to and from miles per hour or knots.
+ 
 */
 private double WindSpeed;
 
@@ -265,336 +494,794 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Set to True to connect to the device hardware. Set to False to disconnect from the device hardware.
+ You can also read the property to check whether it is connected. This reports the current hardware state.
+ 
+
+		Must be implementedDo not use a NotConnectedException here, that exception is for use in other methods that require a connection in order to succeed.
+ The Connected property sets and reports the state of connection to the device hardware.
+ For a hub this means that Connected will be true when the first driver connects and will only be set to false
+ when all drivers have disconnected.  A second driver may find that Connected is already true and
+ setting Connected to false does not report Connected as false.  This is not an error because the physical state is that the
+ hardware connection is still true.
+		Multiple calls setting Connected to true or false will not cause an error.
+	
 */
 public void setConnected(double _theValue){
 this.Connected=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Set to True to connect to the device hardware. Set to False to disconnect from the device hardware.
+ You can also read the property to check whether it is connected. This reports the current hardware state.
+ 
+
+		Must be implementedDo not use a NotConnectedException here, that exception is for use in other methods that require a connection in order to succeed.
+ The Connected property sets and reports the state of connection to the device hardware.
+ For a hub this means that Connected will be true when the first driver connects and will only be set to false
+ when all drivers have disconnected.  A second driver may find that Connected is already true and
+ setting Connected to false does not report Connected as false.  This is not an error because the physical state is that the
+ hardware connection is still true.
+		Multiple calls setting Connected to true or false will not cause an error.
+	
 */
 public double getConnected(){
 return Connected;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Returns a description of the device, such as manufacturer and model number. Any ASCII characters may be used. 
+ 
+Must be implemented
+	
 */
 public void setDescription(double _theValue){
 this.Description=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Returns a description of the device, such as manufacturer and model number. Any ASCII characters may be used. 
+ 
+Must be implemented
+	
 */
 public double getDescription(){
 return Description;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Descriptive and version information about this ASCOM driver.
+ 
+
+		Must be implemented This string may contain line endings and may be hundreds to thousands of characters long.
+ It is intended to display detailed information on the ASCOM driver, including version and copyright data.
+ See the  property for information on the device itself.
+ To get the driver version in a parseable string, use the  property.
+ 
 */
 public void setDriverInfo(double _theValue){
 this.DriverInfo=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Descriptive and version information about this ASCOM driver.
+ 
+
+		Must be implemented This string may contain line endings and may be hundreds to thousands of characters long.
+ It is intended to display detailed information on the ASCOM driver, including version and copyright data.
+ See the  property for information on the device itself.
+ To get the driver version in a parseable string, use the  property.
+ 
 */
 public double getDriverInfo(){
 return DriverInfo;
 }
 
 /*
- Sets null
-null
+ Sets 
+ A string containing only the major and minor version of the driver.
+ 
+Must be implemented This must be in the form "n.n".
+ It should not be confused with the  property, which is the version of this specification supported by the 
+ driver.
+ 
 */
 public void setDriverVersion(double _theValue){
 this.DriverVersion=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ A string containing only the major and minor version of the driver.
+ 
+Must be implemented This must be in the form "n.n".
+ It should not be confused with the  property, which is the version of this specification supported by the 
+ driver.
+ 
 */
 public double getDriverVersion(){
 return DriverVersion;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The interface version number that this device supports. Must return 1 for this interface version.
+ 
+Must be implementedThis value will be incremented if the interface
+ specification is extended in the future.
+ 
 */
 public void setInterfaceVersion(double _theValue){
 this.InterfaceVersion=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The interface version number that this device supports. Must return 1 for this interface version.
+ 
+Must be implementedThis value will be incremented if the interface
+ specification is extended in the future.
+ 
 */
 public double getInterfaceVersion(){
 return InterfaceVersion;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The short name of the driver, for display purposes
+ 
+Must be implemented
+	
 */
 public void setName(double _theValue){
 this.Name=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The short name of the driver, for display purposes
+ 
+Must be implemented
+	
 */
 public double getName(){
 return Name;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Returns the list of action names supported by this driver.
+ 
+Must be implemented This method must return an empty arraylist if no actions are supported. Please do not throw a 
+ .
+ This is an aid to client authors and testers who would otherwise have to repeatedly poll the driver to determine its capabilities. 
+ Returned action names may be in mixed case to enhance presentation but  will be recognised case insensitively in 
+ the Action method.
+		An array list collection has been selected as the vehicle for  action names in order to make it easier for clients to
+ determine whether a particular action is supported. This is easily done through the Contains method. Since the
+ collection is also ennumerable it is easy to use constructs such as For Each ... to operate on members without having to be concerned 
+ about hom many members are in the collection. 
+		Collections have been used in the Telescope specification for a number of years and are known to be compatible with COM. Within .NET
+ the ArrayList is the correct implementation to use as the .NET Generic methods are not compatible with COM.
+		See Action for advice on how th implement this for ObservingConditions drivers.
+	
 */
 public void setSupportedActions(double _theValue){
 this.SupportedActions=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Returns the list of action names supported by this driver.
+ 
+Must be implemented This method must return an empty arraylist if no actions are supported. Please do not throw a 
+ .
+ This is an aid to client authors and testers who would otherwise have to repeatedly poll the driver to determine its capabilities. 
+ Returned action names may be in mixed case to enhance presentation but  will be recognised case insensitively in 
+ the Action method.
+		An array list collection has been selected as the vehicle for  action names in order to make it easier for clients to
+ determine whether a particular action is supported. This is easily done through the Contains method. Since the
+ collection is also ennumerable it is easy to use constructs such as For Each ... to operate on members without having to be concerned 
+ about hom many members are in the collection. 
+		Collections have been used in the Telescope specification for a number of years and are known to be compatible with COM. Within .NET
+ the ArrayList is the correct implementation to use as the .NET Generic methods are not compatible with COM.
+		See Action for advice on how th implement this for ObservingConditions drivers.
+	
 */
 public double getSupportedActions(){
 return SupportedActions;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Gets And sets the time period over which observations will be averaged
+ 
+
+		Mandatory property, must be implemented, can NOT throw a PropertyNotImplementedException
+		This property should return the time period (hours) over which sensor readings will be averaged. If your driver is delivering instantaneous sensor readings this property should return a value of 0.0.
+		Please resist the temptation to throw exceptions when clients query sensor properties when insufficient time has passed to get a true average reading. 
+ A best estimate of the average sensor value should be returned in these situations. 
+	
 */
 public void setAveragePeriod(double _theValue){
 this.AveragePeriod=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Gets And sets the time period over which observations will be averaged
+ 
+
+		Mandatory property, must be implemented, can NOT throw a PropertyNotImplementedException
+		This property should return the time period (hours) over which sensor readings will be averaged. If your driver is delivering instantaneous sensor readings this property should return a value of 0.0.
+		Please resist the temptation to throw exceptions when clients query sensor properties when insufficient time has passed to get a true average reading. 
+ A best estimate of the average sensor value should be returned in these situations. 
+	
 */
 public double getAveragePeriod(){
 return AveragePeriod;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Amount of sky obscured by cloud
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ This property should return a value between 0.0 and 100.0 where 0.0 = clear sky and 100.0 = 100% cloud coverage
+ 
 */
 public void setCloudCover(double _theValue){
 this.CloudCover=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Amount of sky obscured by cloud
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ This property should return a value between 0.0 and 100.0 where 0.0 = clear sky and 100.0 = 100% cloud coverage
+ 
 */
 public double getCloudCover(){
 return CloudCover;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Atmospheric dew point at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException when the  property also throws a PropertyNotImplementedException.
+		Mandatory property, must NOT throw a PropertyNotImplementedException when the  property is implemented.
+		The units of this property are degrees Celsius. Driver and application authors can use the  method
+ to convert these units to and from degrees Farenhheit.
+		The ASCOM specification requires that DewPoint and Humidity are either both implemented or both throw PropertyNotImplementedExceptions. It is not allowed for 
+ one to be implemented and the other to throw a PropertyNotImplementedException. The Utilities component contains methods ( and 
+ ) to convert DewPoint to Humidity and vice versa given the ambient temperature.
+	
 */
 public void setDewPoint(double _theValue){
 this.DewPoint=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Atmospheric dew point at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException when the  property also throws a PropertyNotImplementedException.
+		Mandatory property, must NOT throw a PropertyNotImplementedException when the  property is implemented.
+		The units of this property are degrees Celsius. Driver and application authors can use the  method
+ to convert these units to and from degrees Farenhheit.
+		The ASCOM specification requires that DewPoint and Humidity are either both implemented or both throw PropertyNotImplementedExceptions. It is not allowed for 
+ one to be implemented and the other to throw a PropertyNotImplementedException. The Utilities component contains methods ( and 
+ ) to convert DewPoint to Humidity and vice versa given the ambient temperature.
+	
 */
 public double getDewPoint(){
 return DewPoint;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Atmospheric humidity at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException when the  property also throws a PropertyNotImplementedException.
+		Mandatory property, must NOT throw a PropertyNotImplementedException when the  property is implemented.
+		The ASCOM specification requires that DewPoint and Humidity are either both implemented or both throw PropertyNotImplementedExceptions. It is not allowed for 
+ one to be implemented and the other to throw a PropertyNotImplementedException. The Utilities component contains methods ( and 
+ ) to convert DewPoint to Humidity and vice versa given the ambient temperature.
+		This property should return a value between 0.0 and 100.0 where 0.0 = 0% relative humidity and 100.0 = 100% relative humidity.
+	
 */
 public void setHumidity(double _theValue){
 this.Humidity=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Atmospheric humidity at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException when the  property also throws a PropertyNotImplementedException.
+		Mandatory property, must NOT throw a PropertyNotImplementedException when the  property is implemented.
+		The ASCOM specification requires that DewPoint and Humidity are either both implemented or both throw PropertyNotImplementedExceptions. It is not allowed for 
+ one to be implemented and the other to throw a PropertyNotImplementedException. The Utilities component contains methods ( and 
+ ) to convert DewPoint to Humidity and vice versa given the ambient temperature.
+		This property should return a value between 0.0 and 100.0 where 0.0 = 0% relative humidity and 100.0 = 100% relative humidity.
+	
 */
 public double getHumidity(){
 return Humidity;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Atmospheric pressure at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		The units of this property are hectoPascals. Client and driver authors can use the method 
+ to convert these units to and from milliBar, mm of mercury and inches of mercury.
+		This must be the pressure at the observatory altitude and not the adjusted pressure at sea level.
+ Please check whether your pressure sensor delivers local observatory pressure or sea level pressure and, if it returns sea level pressure, 
+ adjust this to actual pressure at the observatory's altitude before returning a value to the client.
+ The  method can be used to effect this adjustment.
+ 
+	
 */
 public void setPressure(double _theValue){
 this.Pressure=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Atmospheric pressure at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		The units of this property are hectoPascals. Client and driver authors can use the method 
+ to convert these units to and from milliBar, mm of mercury and inches of mercury.
+		This must be the pressure at the observatory altitude and not the adjusted pressure at sea level.
+ Please check whether your pressure sensor delivers local observatory pressure or sea level pressure and, if it returns sea level pressure, 
+ adjust this to actual pressure at the observatory's altitude before returning a value to the client.
+ The  method can be used to effect this adjustment.
+ 
+	
 */
 public double getPressure(){
 return Pressure;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Rain rate at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		The units of this property are millimetres per hour. Client and driver authors can use the method 
+ to convert these units to and from inches per hour.
+		This property can be interpreted as 0.0 = Dry any positive nonzero value = wet.
+		Rainfall intensity is classified according to the rate of precipitation:
+		
+			Light rain — when the precipitation rate is less than 2.5 mm (0.098 in) per hour
+			Moderate rain — when the precipitation rate is between 2.5 mm (0.098 in) and 10 mm (0.39 in) per hour
+			Heavy rain — when the precipitation rate is between 10 mm (0.39 in) and 50 mm (2.0 in) per hour
+			Violent rain — when the precipitation rate is > 50 mm (2.0 in) per hour
+		
+	
 */
 public void setRainRate(double _theValue){
 this.RainRate=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Rain rate at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		The units of this property are millimetres per hour. Client and driver authors can use the method 
+ to convert these units to and from inches per hour.
+		This property can be interpreted as 0.0 = Dry any positive nonzero value = wet.
+		Rainfall intensity is classified according to the rate of precipitation:
+		
+			Light rain — when the precipitation rate is less than 2.5 mm (0.098 in) per hour
+			Moderate rain — when the precipitation rate is between 2.5 mm (0.098 in) and 10 mm (0.39 in) per hour
+			Heavy rain — when the precipitation rate is between 10 mm (0.39 in) and 50 mm (2.0 in) per hour
+			Violent rain — when the precipitation rate is > 50 mm (2.0 in) per hour
+		
+	
 */
 public double getRainRate(){
 return RainRate;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Sky brightness at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ This property returns the sky brightness measured in Lux.
+ Luminance Examples in Lux
+		
+			
+				IlluminanceSurfaces illuminated by:
+			
+			0.0001 luxMoonless, overcast night sky (starlight)
+			0.002 luxMoonless clear night sky with airglow
+			0.27–1.0 luxFull moon on a clear night
+			3.4 luxDark limit of civil twilight under a clear sky
+			50 luxFamily living room lights (Australia, 1998)
+			80 luxOffice building hallway/toilet lighting
+			100 luxVery dark overcast day
+			320–500 luxOffice lighting
+			400 luxSunrise or sunset on a clear day.
+			1000 luxOvercast day; typical TV studio lighting
+			10000–25000 luxFull daylight (not direct sun)
+			32000–100000 luxDirect sunlight
+		
+	
 */
 public void setSkyBrightness(double _theValue){
 this.SkyBrightness=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Sky brightness at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ This property returns the sky brightness measured in Lux.
+ Luminance Examples in Lux
+		
+			
+				IlluminanceSurfaces illuminated by:
+			
+			0.0001 luxMoonless, overcast night sky (starlight)
+			0.002 luxMoonless clear night sky with airglow
+			0.27–1.0 luxFull moon on a clear night
+			3.4 luxDark limit of civil twilight under a clear sky
+			50 luxFamily living room lights (Australia, 1998)
+			80 luxOffice building hallway/toilet lighting
+			100 luxVery dark overcast day
+			320–500 luxOffice lighting
+			400 luxSunrise or sunset on a clear day.
+			1000 luxOvercast day; typical TV studio lighting
+			10000–25000 luxFull daylight (not direct sun)
+			32000–100000 luxDirect sunlight
+		
+	
 */
 public double getSkyBrightness(){
 return SkyBrightness;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Sky quality at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		Sky quality is typically measured in units of magnitudes per square arc second. A sky quality of 20 magnitudes per square arc second means that the
+ overall sky appears with a brightness equivalent to having 1 magnitude 20 star in each square arc second of sky.
+		Examples of typical sky quality values were published by Sky and Telescope (http://www.skyandtelescope.com/astronomy-resources/rate-your-skyglow/) and, in slightly adpated form, are reproduced below:
+		
+			
+				
+				
+				
+					
+						Sky Quality (mag/arcsec2)
+					
+						Description
+				
+				
+					
+ 22.0
+					
+ By convention, this is often assumed to be the average brightness of a moonless night sky that's completely free of artificial light pollution.
+				
+				
+					
+ 21.0
+					
+ This is typical for a rural area with a medium-sized city not far away. It's comparable to the glow of the brightest section of the northern Milky Way, from Cygnus through Perseus. 
+				
+				
+					
+ 20.0
+					
+ This is typical for the outer suburbs of a major metropolis. The summer Milky Way is readily visible but severely washed out.
+				
+				
+					
+ 19.0
+					
+ Typical for a suburb with widely spaced single-family homes. It's a little brighter than a remote rural site at the end of nautical twilight, when the Sun is 12° below the horizon.
+				
+				
+					
+ 18.0
+					
+ Bright suburb or dark urban neighborhood. It's also a typical zenith skyglow at a rural site when the Moon is full. The Milky Way is invisible, or nearly so.
+				
+				
+					
+ 17.0
+					
+ Typical near the center of a major city.
+				
+				
+					
+ 13.0
+					
+ The zenith skyglow at the end of civil twilight, roughly a half hour after sunset, when the Sun is 6° below the horizon. Venus and Jupiter are easy to see, but bright stars are just beginning to appear.
+				
+				
+					
+ 7.0
+					
+ The zenith skyglow at sunrise or sunset
+				
+			
+		
+	
 */
 public void setSkyQuality(double _theValue){
 this.SkyQuality=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Sky quality at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		Sky quality is typically measured in units of magnitudes per square arc second. A sky quality of 20 magnitudes per square arc second means that the
+ overall sky appears with a brightness equivalent to having 1 magnitude 20 star in each square arc second of sky.
+		Examples of typical sky quality values were published by Sky and Telescope (http://www.skyandtelescope.com/astronomy-resources/rate-your-skyglow/) and, in slightly adpated form, are reproduced below:
+		
+			
+				
+				
+				
+					
+						Sky Quality (mag/arcsec2)
+					
+						Description
+				
+				
+					
+ 22.0
+					
+ By convention, this is often assumed to be the average brightness of a moonless night sky that's completely free of artificial light pollution.
+				
+				
+					
+ 21.0
+					
+ This is typical for a rural area with a medium-sized city not far away. It's comparable to the glow of the brightest section of the northern Milky Way, from Cygnus through Perseus. 
+				
+				
+					
+ 20.0
+					
+ This is typical for the outer suburbs of a major metropolis. The summer Milky Way is readily visible but severely washed out.
+				
+				
+					
+ 19.0
+					
+ Typical for a suburb with widely spaced single-family homes. It's a little brighter than a remote rural site at the end of nautical twilight, when the Sun is 12° below the horizon.
+				
+				
+					
+ 18.0
+					
+ Bright suburb or dark urban neighborhood. It's also a typical zenith skyglow at a rural site when the Moon is full. The Milky Way is invisible, or nearly so.
+				
+				
+					
+ 17.0
+					
+ Typical near the center of a major city.
+				
+				
+					
+ 13.0
+					
+ The zenith skyglow at the end of civil twilight, roughly a half hour after sunset, when the Sun is 6° below the horizon. Venus and Jupiter are easy to see, but bright stars are just beginning to appear.
+				
+				
+					
+ 7.0
+					
+ The zenith skyglow at sunrise or sunset
+				
+			
+		
+	
 */
 public double getSkyQuality(){
 return SkyQuality;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Seeing at the observatory measured as star full width half maximum (FWHM) in arc secs.
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+	
 */
 public void setStarFWHM(double _theValue){
 this.StarFWHM=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Seeing at the observatory measured as star full width half maximum (FWHM) in arc secs.
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+	
 */
 public double getStarFWHM(){
 return StarFWHM;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Sky temperature at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		The units of this property are degrees Celsius. Driver and application authors can use the  method
+ to convert these units to and from degrees Farenhheit.
+		This is expected to be returned by an infra-red sensor looking at the sky. The lower the temperature the more the sky is likely to be clear.
+	
 */
 public void setSkyTemperature(double _theValue){
 this.SkyTemperature=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Sky temperature at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		The units of this property are degrees Celsius. Driver and application authors can use the  method
+ to convert these units to and from degrees Farenhheit.
+		This is expected to be returned by an infra-red sensor looking at the sky. The lower the temperature the more the sky is likely to be clear.
+	
 */
 public double getSkyTemperature(){
 return SkyTemperature;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Temperature at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		The units of this property are degrees Celsius. Driver and application authors can use the  method
+ to convert these units to and from degrees Farenhheit.
+		This is expected to be the ambient temperature at the observatory.
+	
 */
 public void setTemperature(double _theValue){
 this.Temperature=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Temperature at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+		The units of this property are degrees Celsius. Driver and application authors can use the  method
+ to convert these units to and from degrees Farenhheit.
+		This is expected to be the ambient temperature at the observatory.
+	
 */
 public double getTemperature(){
 return Temperature;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Wind direction at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ The returned value must be between 0.0 and 360.0, interpreted according to the metereological standard, where a special value of 0.0 is returned when the wind speed is 0.0. 
+ Wind direction is measured clockwise from north, through east, where East=90.0, South=180.0, West=270.0 and North=360.0.
+ 
 */
 public void setWindDirection(double _theValue){
 this.WindDirection=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Wind direction at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ The returned value must be between 0.0 and 360.0, interpreted according to the metereological standard, where a special value of 0.0 is returned when the wind speed is 0.0. 
+ Wind direction is measured clockwise from north, through east, where East=90.0, South=180.0, West=270.0 and North=360.0.
+ 
 */
 public double getWindDirection(){
 return WindDirection;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Peak 3 second wind gust at the observatory over the last 2 minutes
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ The units of this property are metres per second. Driver and application authors can use the  method
+ to convert these units to and from miles per hour or knots.
+ 
 */
 public void setWindGust(double _theValue){
 this.WindGust=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Peak 3 second wind gust at the observatory over the last 2 minutes
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ The units of this property are metres per second. Driver and application authors can use the  method
+ to convert these units to and from miles per hour or knots.
+ 
 */
 public double getWindGust(){
 return WindGust;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Wind speed at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ The units of this property are metres per second. Driver and application authors can use the  method
+ to convert these units to and from miles per hour or knots.
+ 
 */
 public void setWindSpeed(double _theValue){
 this.WindSpeed=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Wind speed at the observatory
+ 
+
+		Optional property, can throw a PropertyNotImplementedException
+ The units of this property are metres per second. Driver and application authors can use the  method
+ to convert these units to and from miles per hour or knots.
+ 
 */
 public double getWindSpeed(){
 return WindSpeed;

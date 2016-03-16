@@ -18,8 +18,10 @@ package ASCOM;
 public class DriverException{
 
 /*
-null
-null
+
+              The COM error code for this exception (hex 80040400 - 800404FF)
+            
+
 */
 private double Number;
 
@@ -97,16 +99,20 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              The COM error code for this exception (hex 80040400 - 800404FF)
+            
+
 */
 public void setNumber(double _theValue){
 this.Number=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              The COM error code for this exception (hex 80040400 - 800404FF)
+            
+
 */
 public double getNumber(){
 return Number;

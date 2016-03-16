@@ -37,33 +37,50 @@ package ASCOM.Controls;
 public class Annunciator{
 
 /*
-null
-null
+
+              Gets or sets the foreground color of the control. There is little point in setting this value
+              directly as it will normally be constantly overwritten at runtime.
+            
+
 */
 private double ForeColor;
 /*
-null
-null
+
+              Gets or sets the color of the anunciator text when inactive.
+            
+
 */
 private double InactiveColor;
 /*
-null
-null
+
+              Gets or sets the color of the anunciator text when active.
+            
+
 */
 private double ActiveColor;
 /*
-null
-null
+
+              Gets or sets the background color for the control.
+            
+
 */
 private double BackColor;
 /*
-null
-null
+
+              Gets or sets a value indicating whether the control can respond to user interaction.
+              For an anunciator, this affects how it displays. A disabled anunciator will always display in
+              its  regardless of other settings and it will not participate in
+              cadence updates.
+            
+
 */
 private double Mute;
 /*
-null
-null
+
+              Gets or sets the cadence (blink pattern) of the anunciator.
+              Different cadence patterns imply different levels of urgency or severity.
+            
+
 */
 private double Cadence;
 
@@ -149,96 +166,130 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets or sets the foreground color of the control. There is little point in setting this value
+              directly as it will normally be constantly overwritten at runtime.
+            
+
 */
 public void setForeColor(double _theValue){
 this.ForeColor=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets or sets the foreground color of the control. There is little point in setting this value
+              directly as it will normally be constantly overwritten at runtime.
+            
+
 */
 public double getForeColor(){
 return ForeColor;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets or sets the color of the anunciator text when inactive.
+            
+
 */
 public void setInactiveColor(double _theValue){
 this.InactiveColor=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets or sets the color of the anunciator text when inactive.
+            
+
 */
 public double getInactiveColor(){
 return InactiveColor;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets or sets the color of the anunciator text when active.
+            
+
 */
 public void setActiveColor(double _theValue){
 this.ActiveColor=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets or sets the color of the anunciator text when active.
+            
+
 */
 public double getActiveColor(){
 return ActiveColor;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets or sets the background color for the control.
+            
+
 */
 public void setBackColor(double _theValue){
 this.BackColor=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets or sets the background color for the control.
+            
+
 */
 public double getBackColor(){
 return BackColor;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets or sets a value indicating whether the control can respond to user interaction.
+              For an anunciator, this affects how it displays. A disabled anunciator will always display in
+              its  regardless of other settings and it will not participate in
+              cadence updates.
+            
+
 */
 public void setMute(double _theValue){
 this.Mute=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets or sets a value indicating whether the control can respond to user interaction.
+              For an anunciator, this affects how it displays. A disabled anunciator will always display in
+              its  regardless of other settings and it will not participate in
+              cadence updates.
+            
+
 */
 public double getMute(){
 return Mute;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets or sets the cadence (blink pattern) of the anunciator.
+              Different cadence patterns imply different levels of urgency or severity.
+            
+
 */
 public void setCadence(double _theValue){
 this.Cadence=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets or sets the cadence (blink pattern) of the anunciator.
+              Different cadence patterns imply different levels of urgency or severity.
+            
+
 */
 public double getCadence(){
 return Cadence;

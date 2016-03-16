@@ -11,8 +11,15 @@ package ASCOM.Controls;
 public class ICadencedControl{
 
 /*
-null
-null
+
+              Gets or sets the cadence (blink pattern) of the control.
+              Different cadence patterns imply different levels of urgency or severity.
+            
+
+               is based on a 64-bit long integer but
+              only 32-bits are used. This is necessary to achieve CLS compliance, because
+              32-bit uints are not CLS compliant.
+            
 */
 private double Cadence;
 
@@ -29,16 +36,30 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets or sets the cadence (blink pattern) of the control.
+              Different cadence patterns imply different levels of urgency or severity.
+            
+
+               is based on a 64-bit long integer but
+              only 32-bits are used. This is necessary to achieve CLS compliance, because
+              32-bit uints are not CLS compliant.
+            
 */
 public void setCadence(double _theValue){
 this.Cadence=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets or sets the cadence (blink pattern) of the control.
+              Different cadence patterns imply different levels of urgency or severity.
+            
+
+               is based on a 64-bit long integer but
+              only 32-bits are used. This is necessary to achieve CLS compliance, because
+              32-bit uints are not CLS compliant.
+            
 */
 public double getCadence(){
 return Cadence;

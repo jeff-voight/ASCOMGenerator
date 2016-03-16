@@ -20,78 +20,114 @@ Use this component to transform between J2000, apparent and local topocentric (J
 public class ITransform{
 
 /*
-null
-null
+
+                Gets or sets the site latitude
+            
+Positive numbers north of the equator, negative numbers south.
 */
 private double SiteLatitude;
 /*
-null
-null
+
+                Gets or sets the site longitude
+            
+Positive numbers east of the Greenwich meridian, negative numbes west of the Greenwich meridian.
 */
 private double SiteLongitude;
 /*
-null
-null
+
+                Gets or sets the site elevation above sea level
+            
+
 */
 private double SiteElevation;
 /*
-null
-null
+
+                Gets or sets the site ambient temperature
+            
+
 */
 private double SiteTemperature;
 /*
-null
-null
+
+                Gets or sets a flag indicating whether refraction is calculated for topocentric co-ordinates
+            
+
 */
 private double Refraction;
 /*
-null
-null
+
+                Returns the Right Ascension in J2000 co-ordinates
+            
+
 */
 private double RAJ2000;
 /*
-null
-null
+
+                Returns the Declination in J2000 co-ordinates
+            
+
 */
 private double DECJ2000;
 /*
-null
-null
+
+                Returns the Right Ascension in local topocentric co-ordinates
+            
+
 */
 private double RATopocentric;
 /*
-null
-null
+
+                Returns the Declination in local topocentric co-ordinates
+            
+
 */
 private double DECTopocentric;
 /*
-null
-null
+
+                Returns the Right Ascension in apparent co-ordinates
+            
+
 */
 private double RAApparent;
 /*
-null
-null
+
+                Returns the Declination in apparent co-ordinates
+            
+
 */
 private double DECApparent;
 /*
-null
-null
+
+                Returns the topocentric azimth angle of the target
+            
+
 */
 private double AzimuthTopocentric;
 /*
-null
-null
+
+                Returns the topocentric elevation of the target
+            
+
 */
 private double ElevationTopocentric;
 /*
-null
-null
+
+                Sets or return the Julian date (terrestrial time) for which the transform will be made
+            
+This method was introduced in May 2012. Previously, Transform used the current date-time of the PC when calculating transforms; 
+                this remains the default behaviour for backward compatibility.
+                The inital value of this parameter is 0 which is a special value that forces Transform to replicate original behaviour by determining the  
+                Julian date from the PC's current date and time. If this property is non zero, that terrestrial time Julian date is used in preference 
+                to the value derrived from the PC's clock.
 */
 private double JulianDateTT;
 /*
-null
-null
+
+                Sets or return the Julian date (UTC) for which the transform will be made
+            
+The inital value of this parameter is 0 which is a special value that forces Transform to replicate original behaviour by determining the  
+                Julian date from the PC's current date and time. If this property is non zero, that UTC Julian date is used in preference 
+                to the value derrived from the PC's clock.
 */
 private double JulianDateUTC;
 
@@ -152,240 +188,312 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Gets or sets the site latitude
+            
+Positive numbers north of the equator, negative numbers south.
 */
 public void setSiteLatitude(double _theValue){
 this.SiteLatitude=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Gets or sets the site latitude
+            
+Positive numbers north of the equator, negative numbers south.
 */
 public double getSiteLatitude(){
 return SiteLatitude;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Gets or sets the site longitude
+            
+Positive numbers east of the Greenwich meridian, negative numbes west of the Greenwich meridian.
 */
 public void setSiteLongitude(double _theValue){
 this.SiteLongitude=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Gets or sets the site longitude
+            
+Positive numbers east of the Greenwich meridian, negative numbes west of the Greenwich meridian.
 */
 public double getSiteLongitude(){
 return SiteLongitude;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Gets or sets the site elevation above sea level
+            
+
 */
 public void setSiteElevation(double _theValue){
 this.SiteElevation=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Gets or sets the site elevation above sea level
+            
+
 */
 public double getSiteElevation(){
 return SiteElevation;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Gets or sets the site ambient temperature
+            
+
 */
 public void setSiteTemperature(double _theValue){
 this.SiteTemperature=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Gets or sets the site ambient temperature
+            
+
 */
 public double getSiteTemperature(){
 return SiteTemperature;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Gets or sets a flag indicating whether refraction is calculated for topocentric co-ordinates
+            
+
 */
 public void setRefraction(double _theValue){
 this.Refraction=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Gets or sets a flag indicating whether refraction is calculated for topocentric co-ordinates
+            
+
 */
 public double getRefraction(){
 return Refraction;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Returns the Right Ascension in J2000 co-ordinates
+            
+
 */
 public void setRAJ2000(double _theValue){
 this.RAJ2000=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Returns the Right Ascension in J2000 co-ordinates
+            
+
 */
 public double getRAJ2000(){
 return RAJ2000;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Returns the Declination in J2000 co-ordinates
+            
+
 */
 public void setDECJ2000(double _theValue){
 this.DECJ2000=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Returns the Declination in J2000 co-ordinates
+            
+
 */
 public double getDECJ2000(){
 return DECJ2000;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Returns the Right Ascension in local topocentric co-ordinates
+            
+
 */
 public void setRATopocentric(double _theValue){
 this.RATopocentric=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Returns the Right Ascension in local topocentric co-ordinates
+            
+
 */
 public double getRATopocentric(){
 return RATopocentric;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Returns the Declination in local topocentric co-ordinates
+            
+
 */
 public void setDECTopocentric(double _theValue){
 this.DECTopocentric=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Returns the Declination in local topocentric co-ordinates
+            
+
 */
 public double getDECTopocentric(){
 return DECTopocentric;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Returns the Right Ascension in apparent co-ordinates
+            
+
 */
 public void setRAApparent(double _theValue){
 this.RAApparent=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Returns the Right Ascension in apparent co-ordinates
+            
+
 */
 public double getRAApparent(){
 return RAApparent;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Returns the Declination in apparent co-ordinates
+            
+
 */
 public void setDECApparent(double _theValue){
 this.DECApparent=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Returns the Declination in apparent co-ordinates
+            
+
 */
 public double getDECApparent(){
 return DECApparent;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Returns the topocentric azimth angle of the target
+            
+
 */
 public void setAzimuthTopocentric(double _theValue){
 this.AzimuthTopocentric=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Returns the topocentric azimth angle of the target
+            
+
 */
 public double getAzimuthTopocentric(){
 return AzimuthTopocentric;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Returns the topocentric elevation of the target
+            
+
 */
 public void setElevationTopocentric(double _theValue){
 this.ElevationTopocentric=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Returns the topocentric elevation of the target
+            
+
 */
 public double getElevationTopocentric(){
 return ElevationTopocentric;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Sets or return the Julian date (terrestrial time) for which the transform will be made
+            
+This method was introduced in May 2012. Previously, Transform used the current date-time of the PC when calculating transforms; 
+                this remains the default behaviour for backward compatibility.
+                The inital value of this parameter is 0 which is a special value that forces Transform to replicate original behaviour by determining the  
+                Julian date from the PC's current date and time. If this property is non zero, that terrestrial time Julian date is used in preference 
+                to the value derrived from the PC's clock.
 */
 public void setJulianDateTT(double _theValue){
 this.JulianDateTT=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Sets or return the Julian date (terrestrial time) for which the transform will be made
+            
+This method was introduced in May 2012. Previously, Transform used the current date-time of the PC when calculating transforms; 
+                this remains the default behaviour for backward compatibility.
+                The inital value of this parameter is 0 which is a special value that forces Transform to replicate original behaviour by determining the  
+                Julian date from the PC's current date and time. If this property is non zero, that terrestrial time Julian date is used in preference 
+                to the value derrived from the PC's clock.
 */
 public double getJulianDateTT(){
 return JulianDateTT;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Sets or return the Julian date (UTC) for which the transform will be made
+            
+The inital value of this parameter is 0 which is a special value that forces Transform to replicate original behaviour by determining the  
+                Julian date from the PC's current date and time. If this property is non zero, that UTC Julian date is used in preference 
+                to the value derrived from the PC's clock.
 */
 public void setJulianDateUTC(double _theValue){
 this.JulianDateUTC=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Sets or return the Julian date (UTC) for which the transform will be made
+            
+The inital value of this parameter is 0 which is a special value that forces Transform to replicate original behaviour by determining the  
+                Julian date from the PC's current date and time. If this property is non zero, that UTC Julian date is used in preference 
+                to the value derrived from the PC's clock.
 */
 public double getJulianDateUTC(){
 return JulianDateUTC;

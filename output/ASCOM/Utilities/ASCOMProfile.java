@@ -12,8 +12,10 @@ package ASCOM.Utilities;
 public class ASCOMProfile{
 
 /*
-null
-null
+
+ Get the collection of values in this profile
+ 
+
 */
 private double ProfileValues;
 
@@ -118,16 +120,20 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Get the collection of values in this profile
+ 
+
 */
 public void setProfileValues(double _theValue){
 this.ProfileValues=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Get the collection of values in this profile
+ 
+
 */
 public double getProfileValues(){
 return ProfileValues;

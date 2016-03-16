@@ -10,13 +10,17 @@ package ASCOM.DriverAccess;
 public class TrackingRates{
 
 /*
-null
-null
+
+            Return a drive rate given its index
+            
+
 */
 private double Item;
 /*
-null
-null
+
+            Returns the number of driverates supported by the telescope 
+            
+
 */
 private double Count;
 
@@ -54,32 +58,40 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Return a drive rate given its index
+            
+
 */
 public void setItem(double _theValue){
 this.Item=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Return a drive rate given its index
+            
+
 */
 public double getItem(){
 return Item;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Returns the number of driverates supported by the telescope 
+            
+
 */
 public void setCount(double _theValue){
 this.Count=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Returns the number of driverates supported by the telescope 
+            
+
 */
 public double getCount(){
 return Count;

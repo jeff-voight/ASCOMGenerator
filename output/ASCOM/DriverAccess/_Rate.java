@@ -13,13 +13,19 @@ package ASCOM.DriverAccess;
 public class _Rate{
 
 /*
-null
-null
+
+            The maximum rate (degrees per second)
+            This must always be a positive number. It indicates the maximum rate in either direction about the axis. 
+            
+
 */
 private double Maximum;
 /*
-null
-null
+
+            The minimum rate (degrees per second)
+            This must always be a positive number. It indicates the maximum rate in either direction about the axis. 
+            
+
 */
 private double Minimum;
 
@@ -37,32 +43,44 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+            The maximum rate (degrees per second)
+            This must always be a positive number. It indicates the maximum rate in either direction about the axis. 
+            
+
 */
 public void setMaximum(double _theValue){
 this.Maximum=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            The maximum rate (degrees per second)
+            This must always be a positive number. It indicates the maximum rate in either direction about the axis. 
+            
+
 */
 public double getMaximum(){
 return Maximum;
 }
 
 /*
- Sets null
-null
+ Sets 
+            The minimum rate (degrees per second)
+            This must always be a positive number. It indicates the maximum rate in either direction about the axis. 
+            
+
 */
 public void setMinimum(double _theValue){
 this.Minimum=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            The minimum rate (degrees per second)
+            This must always be a positive number. It indicates the maximum rate in either direction about the axis. 
+            
+
 */
 public double getMinimum(){
 return Minimum;

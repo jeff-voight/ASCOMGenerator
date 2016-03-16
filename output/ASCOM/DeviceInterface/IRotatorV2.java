@@ -10,68 +10,144 @@ package ASCOM.DeviceInterface;
 public class IRotatorV2{
 
 /*
-null
-null
+
+ Set True to connect to the device hardware. Set False to disconnect from the device hardware.
+ You can also read the property to check whether it is connected. This reports the current hardware state.
+ 
+
+		Must be implementedDo not use a NotConnectedException here, that exception is for use in other methods that require a connection in order to succeed.
+ The Connected property sets and reports the state of connection to the device hardware.
+ For a hub this means that Connected will be true when the first driver connects and will only be set to false
+ when all drivers have disconnected.  A second driver may find that Connected is already true and
+ setting Connected to false does not report Connected as false.  This is not an error because the physical state is that the
+ hardware connection is still true.
+		Multiple calls setting Connected to true or false will not cause an error.
+	
 */
 private double Connected;
 /*
-null
-null
+
+ Returns a description of the device, such as manufacturer and modelnumber. Any ASCII characters may be used. 
+ 
+Must be implemented
+	
 */
 private double Description;
 /*
-null
-null
+
+ Descriptive and version information about this ASCOM driver.
+ 
+
+		Must be implemented This string may contain line endings and may be hundreds to thousands of characters long.
+ It is intended to display detailed information on the ASCOM driver, including version and copyright data.
+ See the  property for information on the device itself.
+ To get the driver version in a parseable string, use the  property.
+ 
 */
 private double DriverInfo;
 /*
-null
-null
+
+ A string containing only the major and minor version of the driver.
+ 
+Must be implemented This must be in the form "n.n".
+ It should not to be confused with the  property, which is the version of this specification supported by the 
+ driver.
+ 
 */
 private double DriverVersion;
 /*
-null
-null
+
+ The interface version number that this device supports. Should return 2 for this interface version.
+ 
+Must be implemented Clients can detect legacy V1 drivers by trying to read ths property.
+ If the driver raises an error, it is a V1 driver. V1 did not specify this property. A driver may also return a value of 1. 
+ In other words, a raised error or a return value of 1 indicates that the driver is a V1 driver.
+ 
 */
 private double InterfaceVersion;
 /*
-null
-null
+
+ The short name of the driver, for display purposes
+ 
+Must be implemented
+	
 */
 private double Name;
 /*
-null
-null
+
+ Returns the list of action names supported by this driver.
+ 
+Must be implemented This method must return an empty arraylist if no actions are supported. Please do not throw a 
+ .
+ This is an aid to client authors and testers who would otherwise have to repeatedly poll the driver to determine its capabilities. 
+ Returned action names may be in mixed case to enhance presentation but  will be recognised case insensitively in 
+ the Action method.
+		An array list collection has been selected as the vehicle for  action names in order to make it easier for clients to
+ determine whether a particular action is supported. This is easily done through the Contains method. Since the
+ collection is also ennumerable it is easy to use constructs such as For Each ... to operate on members without having to be concerned 
+ about hom many members are in the collection. 
+		Collections have been used in the Telescope specification for a number of years and are known to be compatible with COM. Within .NET
+ the ArrayList is the correct implementation to use as the .NET Generic methods are not compatible with COM.
+	
 */
 private double SupportedActions;
 /*
-null
-null
+
+ Indicates whether the Rotator supports the  method.
+ 
+
+		Must be implemented and must not throw a PropertyNotImplementedException. 
+	
 */
 private double CanReverse;
 /*
-null
-null
+
+ Indicates whether the rotator is currently moving
+ 
+Rotation is asynchronous, that is, when the Move method is called, it starts the rotation, then returns 
+ immediately. During rotation,  must be True, else it must be False.
 */
 private double IsMoving;
 /*
-null
-null
+
+ Current instantaneous Rotator position, in degrees.
+ 
+
+ The position is expressed as an angle from 0 up to but not including 360 degrees, counter-clockwise against the 
+ sky. This is the standard definition of Position Angle. However, the rotator does not need to (and in general will not) 
+ report the true Equatorial Position Angle, as the attached imager may not be precisely aligned with the rotator's indexing. 
+ It is up to the client to determine any offset between mechanical rotator position angle and the true Equatorial Position 
+ Angle of the imager, and compensate for any difference. 
+ The optional  property is provided in order to manage rotators being used on optics with odd or 
+ even number of reflections. With the Reverse switch in the correct position for the optics, the reported position angle must 
+ be counter-clockwise against the sky.
+	
 */
 private double Position;
 /*
-null
-null
+
+ Sets or Returns the rotator’s Reverse state.
+ 
+See the definition of . Raises an error if not supported. 
 */
 private double Reverse;
 /*
-null
-null
+
+ The minimum StepSize, in degrees.
+ 
+
+ Raises an exception if the rotator does not intrinsically know what the step size is.
+ 
 */
 private double StepSize;
 /*
-null
-null
+
+ The destination position angle for Move() and MoveAbsolute().
+ 
+
+ Upon calling Move or MoveAbsolute, this property immediately changes to the position angle to which the rotator is moving. The value is retained until a subsequent call 
+ to Move or MoveAbsolute.
+ 
 */
 private double TargetPosition;
 
@@ -202,208 +278,360 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Set True to connect to the device hardware. Set False to disconnect from the device hardware.
+ You can also read the property to check whether it is connected. This reports the current hardware state.
+ 
+
+		Must be implementedDo not use a NotConnectedException here, that exception is for use in other methods that require a connection in order to succeed.
+ The Connected property sets and reports the state of connection to the device hardware.
+ For a hub this means that Connected will be true when the first driver connects and will only be set to false
+ when all drivers have disconnected.  A second driver may find that Connected is already true and
+ setting Connected to false does not report Connected as false.  This is not an error because the physical state is that the
+ hardware connection is still true.
+		Multiple calls setting Connected to true or false will not cause an error.
+	
 */
 public void setConnected(double _theValue){
 this.Connected=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Set True to connect to the device hardware. Set False to disconnect from the device hardware.
+ You can also read the property to check whether it is connected. This reports the current hardware state.
+ 
+
+		Must be implementedDo not use a NotConnectedException here, that exception is for use in other methods that require a connection in order to succeed.
+ The Connected property sets and reports the state of connection to the device hardware.
+ For a hub this means that Connected will be true when the first driver connects and will only be set to false
+ when all drivers have disconnected.  A second driver may find that Connected is already true and
+ setting Connected to false does not report Connected as false.  This is not an error because the physical state is that the
+ hardware connection is still true.
+		Multiple calls setting Connected to true or false will not cause an error.
+	
 */
 public double getConnected(){
 return Connected;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Returns a description of the device, such as manufacturer and modelnumber. Any ASCII characters may be used. 
+ 
+Must be implemented
+	
 */
 public void setDescription(double _theValue){
 this.Description=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Returns a description of the device, such as manufacturer and modelnumber. Any ASCII characters may be used. 
+ 
+Must be implemented
+	
 */
 public double getDescription(){
 return Description;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Descriptive and version information about this ASCOM driver.
+ 
+
+		Must be implemented This string may contain line endings and may be hundreds to thousands of characters long.
+ It is intended to display detailed information on the ASCOM driver, including version and copyright data.
+ See the  property for information on the device itself.
+ To get the driver version in a parseable string, use the  property.
+ 
 */
 public void setDriverInfo(double _theValue){
 this.DriverInfo=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Descriptive and version information about this ASCOM driver.
+ 
+
+		Must be implemented This string may contain line endings and may be hundreds to thousands of characters long.
+ It is intended to display detailed information on the ASCOM driver, including version and copyright data.
+ See the  property for information on the device itself.
+ To get the driver version in a parseable string, use the  property.
+ 
 */
 public double getDriverInfo(){
 return DriverInfo;
 }
 
 /*
- Sets null
-null
+ Sets 
+ A string containing only the major and minor version of the driver.
+ 
+Must be implemented This must be in the form "n.n".
+ It should not to be confused with the  property, which is the version of this specification supported by the 
+ driver.
+ 
 */
 public void setDriverVersion(double _theValue){
 this.DriverVersion=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ A string containing only the major and minor version of the driver.
+ 
+Must be implemented This must be in the form "n.n".
+ It should not to be confused with the  property, which is the version of this specification supported by the 
+ driver.
+ 
 */
 public double getDriverVersion(){
 return DriverVersion;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The interface version number that this device supports. Should return 2 for this interface version.
+ 
+Must be implemented Clients can detect legacy V1 drivers by trying to read ths property.
+ If the driver raises an error, it is a V1 driver. V1 did not specify this property. A driver may also return a value of 1. 
+ In other words, a raised error or a return value of 1 indicates that the driver is a V1 driver.
+ 
 */
 public void setInterfaceVersion(double _theValue){
 this.InterfaceVersion=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The interface version number that this device supports. Should return 2 for this interface version.
+ 
+Must be implemented Clients can detect legacy V1 drivers by trying to read ths property.
+ If the driver raises an error, it is a V1 driver. V1 did not specify this property. A driver may also return a value of 1. 
+ In other words, a raised error or a return value of 1 indicates that the driver is a V1 driver.
+ 
 */
 public double getInterfaceVersion(){
 return InterfaceVersion;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The short name of the driver, for display purposes
+ 
+Must be implemented
+	
 */
 public void setName(double _theValue){
 this.Name=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The short name of the driver, for display purposes
+ 
+Must be implemented
+	
 */
 public double getName(){
 return Name;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Returns the list of action names supported by this driver.
+ 
+Must be implemented This method must return an empty arraylist if no actions are supported. Please do not throw a 
+ .
+ This is an aid to client authors and testers who would otherwise have to repeatedly poll the driver to determine its capabilities. 
+ Returned action names may be in mixed case to enhance presentation but  will be recognised case insensitively in 
+ the Action method.
+		An array list collection has been selected as the vehicle for  action names in order to make it easier for clients to
+ determine whether a particular action is supported. This is easily done through the Contains method. Since the
+ collection is also ennumerable it is easy to use constructs such as For Each ... to operate on members without having to be concerned 
+ about hom many members are in the collection. 
+		Collections have been used in the Telescope specification for a number of years and are known to be compatible with COM. Within .NET
+ the ArrayList is the correct implementation to use as the .NET Generic methods are not compatible with COM.
+	
 */
 public void setSupportedActions(double _theValue){
 this.SupportedActions=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Returns the list of action names supported by this driver.
+ 
+Must be implemented This method must return an empty arraylist if no actions are supported. Please do not throw a 
+ .
+ This is an aid to client authors and testers who would otherwise have to repeatedly poll the driver to determine its capabilities. 
+ Returned action names may be in mixed case to enhance presentation but  will be recognised case insensitively in 
+ the Action method.
+		An array list collection has been selected as the vehicle for  action names in order to make it easier for clients to
+ determine whether a particular action is supported. This is easily done through the Contains method. Since the
+ collection is also ennumerable it is easy to use constructs such as For Each ... to operate on members without having to be concerned 
+ about hom many members are in the collection. 
+		Collections have been used in the Telescope specification for a number of years and are known to be compatible with COM. Within .NET
+ the ArrayList is the correct implementation to use as the .NET Generic methods are not compatible with COM.
+	
 */
 public double getSupportedActions(){
 return SupportedActions;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Indicates whether the Rotator supports the  method.
+ 
+
+		Must be implemented and must not throw a PropertyNotImplementedException. 
+	
 */
 public void setCanReverse(double _theValue){
 this.CanReverse=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Indicates whether the Rotator supports the  method.
+ 
+
+		Must be implemented and must not throw a PropertyNotImplementedException. 
+	
 */
 public double getCanReverse(){
 return CanReverse;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Indicates whether the rotator is currently moving
+ 
+Rotation is asynchronous, that is, when the Move method is called, it starts the rotation, then returns 
+ immediately. During rotation,  must be True, else it must be False.
 */
 public void setIsMoving(double _theValue){
 this.IsMoving=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Indicates whether the rotator is currently moving
+ 
+Rotation is asynchronous, that is, when the Move method is called, it starts the rotation, then returns 
+ immediately. During rotation,  must be True, else it must be False.
 */
 public double getIsMoving(){
 return IsMoving;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Current instantaneous Rotator position, in degrees.
+ 
+
+ The position is expressed as an angle from 0 up to but not including 360 degrees, counter-clockwise against the 
+ sky. This is the standard definition of Position Angle. However, the rotator does not need to (and in general will not) 
+ report the true Equatorial Position Angle, as the attached imager may not be precisely aligned with the rotator's indexing. 
+ It is up to the client to determine any offset between mechanical rotator position angle and the true Equatorial Position 
+ Angle of the imager, and compensate for any difference. 
+ The optional  property is provided in order to manage rotators being used on optics with odd or 
+ even number of reflections. With the Reverse switch in the correct position for the optics, the reported position angle must 
+ be counter-clockwise against the sky.
+	
 */
 public void setPosition(double _theValue){
 this.Position=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Current instantaneous Rotator position, in degrees.
+ 
+
+ The position is expressed as an angle from 0 up to but not including 360 degrees, counter-clockwise against the 
+ sky. This is the standard definition of Position Angle. However, the rotator does not need to (and in general will not) 
+ report the true Equatorial Position Angle, as the attached imager may not be precisely aligned with the rotator's indexing. 
+ It is up to the client to determine any offset between mechanical rotator position angle and the true Equatorial Position 
+ Angle of the imager, and compensate for any difference. 
+ The optional  property is provided in order to manage rotators being used on optics with odd or 
+ even number of reflections. With the Reverse switch in the correct position for the optics, the reported position angle must 
+ be counter-clockwise against the sky.
+	
 */
 public double getPosition(){
 return Position;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Sets or Returns the rotator’s Reverse state.
+ 
+See the definition of . Raises an error if not supported. 
 */
 public void setReverse(double _theValue){
 this.Reverse=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Sets or Returns the rotator’s Reverse state.
+ 
+See the definition of . Raises an error if not supported. 
 */
 public double getReverse(){
 return Reverse;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The minimum StepSize, in degrees.
+ 
+
+ Raises an exception if the rotator does not intrinsically know what the step size is.
+ 
 */
 public void setStepSize(double _theValue){
 this.StepSize=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The minimum StepSize, in degrees.
+ 
+
+ Raises an exception if the rotator does not intrinsically know what the step size is.
+ 
 */
 public double getStepSize(){
 return StepSize;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The destination position angle for Move() and MoveAbsolute().
+ 
+
+ Upon calling Move or MoveAbsolute, this property immediately changes to the position angle to which the rotator is moving. The value is retained until a subsequent call 
+ to Move or MoveAbsolute.
+ 
 */
 public void setTargetPosition(double _theValue){
 this.TargetPosition=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The destination position angle for Move() and MoveAbsolute().
+ 
+
+ Upon calling Move or MoveAbsolute, this property immediately changes to the position angle to which the rotator is moving. The value is retained until a subsequent call 
+ to Move or MoveAbsolute.
+ 
 */
 public double getTargetPosition(){
 return TargetPosition;

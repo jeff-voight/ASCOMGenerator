@@ -41,33 +41,49 @@ NOVAS-COM objects of class Planet hold the characteristics of a solar system bod
 public class Planet{
 
 /*
-null
-null
+
+                Planet delta-T
+            
+Setting this value is optional. If no value is set, an internal delta-T generator is used.
 */
 private double DeltaT;
 /*
-null
-null
+
+                Ephemeris object used to provide the position of the Earth.
+            
+
+                Setting this is optional, if not set, the internal Kepler engine will be used.
 */
 private double EarthEphemeris;
 /*
-null
-null
+
+                The Ephemeris object used to provide positions of solar system bodies.
+            
+
+                Setting this is optional, if not set, the internal Kepler engine will be used.
+            
 */
 private double Ephemeris;
 /*
-null
-null
+
+                Planet name
+            
+
 */
 private double Name;
 /*
-null
-null
+
+                Planet number
+            
+The major planet number is its number out from the sun starting with Mercury = 1, ending at Pluto = 9. Planet 10 gives 
+                values for the Sun and planet 11 gives values for the Moon
 */
 private double Number;
 /*
-null
-null
+
+                The type of solar system body
+            
+
 */
 private double Type;
 
@@ -140,96 +156,128 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Planet delta-T
+            
+Setting this value is optional. If no value is set, an internal delta-T generator is used.
 */
 public void setDeltaT(double _theValue){
 this.DeltaT=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Planet delta-T
+            
+Setting this value is optional. If no value is set, an internal delta-T generator is used.
 */
 public double getDeltaT(){
 return DeltaT;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Ephemeris object used to provide the position of the Earth.
+            
+
+                Setting this is optional, if not set, the internal Kepler engine will be used.
 */
 public void setEarthEphemeris(double _theValue){
 this.EarthEphemeris=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Ephemeris object used to provide the position of the Earth.
+            
+
+                Setting this is optional, if not set, the internal Kepler engine will be used.
 */
 public double getEarthEphemeris(){
 return EarthEphemeris;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The Ephemeris object used to provide positions of solar system bodies.
+            
+
+                Setting this is optional, if not set, the internal Kepler engine will be used.
+            
 */
 public void setEphemeris(double _theValue){
 this.Ephemeris=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The Ephemeris object used to provide positions of solar system bodies.
+            
+
+                Setting this is optional, if not set, the internal Kepler engine will be used.
+            
 */
 public double getEphemeris(){
 return Ephemeris;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Planet name
+            
+
 */
 public void setName(double _theValue){
 this.Name=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Planet name
+            
+
 */
 public double getName(){
 return Name;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Planet number
+            
+The major planet number is its number out from the sun starting with Mercury = 1, ending at Pluto = 9. Planet 10 gives 
+                values for the Sun and planet 11 gives values for the Moon
 */
 public void setNumber(double _theValue){
 this.Number=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Planet number
+            
+The major planet number is its number out from the sun starting with Mercury = 1, ending at Pluto = 9. Planet 10 gives 
+                values for the Sun and planet 11 gives values for the Moon
 */
 public double getNumber(){
 return Number;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The type of solar system body
+            
+
 */
 public void setType(double _theValue){
 this.Type=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The type of solar system body
+            
+
 */
 public double getType(){
 return Type;

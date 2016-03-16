@@ -19,8 +19,14 @@ package ASCOM.Utilities;
 public class Chooser{
 
 /*
-null
-null
+
+ The type of device for which the Chooser will select a driver. (String, default = "Telescope")
+ 
+This property changes the "personality" of the Chooser, allowing it to be used to select a driver for any arbitrary 
+ ASCOM device type. The default value for this is "Telescope", but it could be "Focuser", "Camera", etc. 
+ This property is independent of the Profile object's DeviceType property. Setting Chooser's DeviceType 
+ property doesn't set the DeviceType property in Profile, you must set that also when needed.
+	
 */
 private double DeviceType;
 
@@ -86,16 +92,28 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The type of device for which the Chooser will select a driver. (String, default = "Telescope")
+ 
+This property changes the "personality" of the Chooser, allowing it to be used to select a driver for any arbitrary 
+ ASCOM device type. The default value for this is "Telescope", but it could be "Focuser", "Camera", etc. 
+ This property is independent of the Profile object's DeviceType property. Setting Chooser's DeviceType 
+ property doesn't set the DeviceType property in Profile, you must set that also when needed.
+	
 */
 public void setDeviceType(double _theValue){
 this.DeviceType=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The type of device for which the Chooser will select a driver. (String, default = "Telescope")
+ 
+This property changes the "personality" of the Chooser, allowing it to be used to select a driver for any arbitrary 
+ ASCOM device type. The default value for this is "Telescope", but it could be "Focuser", "Camera", etc. 
+ This property is independent of the Profile object's DeviceType property. Setting Chooser's DeviceType 
+ property doesn't set the DeviceType property in Profile, you must set that also when needed.
+	
 */
 public double getDeviceType(){
 return DeviceType;

@@ -16,33 +16,45 @@ Objects of class VelocityVector contain vectors used for velocities (earth, site
 public class IVelocityVector{
 
 /*
-null
-null
+
+                Linear velocity along the declination direction (AU/day)
+            
+This is not the proper motion (which is an angular rate and is dependent on the distance to the object).
 */
 private double DecVelocity;
 /*
-null
-null
+
+                Linear velocity along the radial direction (AU/day)
+            
+
 */
 private double RadialVelocity;
 /*
-null
-null
+
+                Linear velocity along the right ascension direction (AU/day)
+            
+
 */
 private double RAVelocity;
 /*
-null
-null
+
+                Cartesian x component of velocity (AU/day)
+            
+
 */
 private double x;
 /*
-null
-null
+
+                Cartesian y component of velocity (AU/day)
+            
+
 */
 private double y;
 /*
-null
-null
+
+                Cartesian z component of velocity (AU/day)
+            
+
 */
 private double z;
 
@@ -84,96 +96,120 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Linear velocity along the declination direction (AU/day)
+            
+This is not the proper motion (which is an angular rate and is dependent on the distance to the object).
 */
 public void setDecVelocity(double _theValue){
 this.DecVelocity=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Linear velocity along the declination direction (AU/day)
+            
+This is not the proper motion (which is an angular rate and is dependent on the distance to the object).
 */
 public double getDecVelocity(){
 return DecVelocity;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Linear velocity along the radial direction (AU/day)
+            
+
 */
 public void setRadialVelocity(double _theValue){
 this.RadialVelocity=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Linear velocity along the radial direction (AU/day)
+            
+
 */
 public double getRadialVelocity(){
 return RadialVelocity;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Linear velocity along the right ascension direction (AU/day)
+            
+
 */
 public void setRAVelocity(double _theValue){
 this.RAVelocity=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Linear velocity along the right ascension direction (AU/day)
+            
+
 */
 public double getRAVelocity(){
 return RAVelocity;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Cartesian x component of velocity (AU/day)
+            
+
 */
 public void setX(double _theValue){
 this.x=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Cartesian x component of velocity (AU/day)
+            
+
 */
 public double getX(){
 return x;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Cartesian y component of velocity (AU/day)
+            
+
 */
 public void setY(double _theValue){
 this.y=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Cartesian y component of velocity (AU/day)
+            
+
 */
 public double getY(){
 return y;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Cartesian z component of velocity (AU/day)
+            
+
 */
 public void setZ(double _theValue){
 this.z=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Cartesian z component of velocity (AU/day)
+            
+
 */
 public double getZ(){
 return z;

@@ -10,8 +10,10 @@ package ASCOM.DriverAccess;
 public class SafetyMonitor{
 
 /*
-null
-null
+
+            Indicates whether the monitored state is safe for use.
+            
+
 */
 private double IsSafe;
 
@@ -38,16 +40,20 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Indicates whether the monitored state is safe for use.
+            
+
 */
 public void setIsSafe(double _theValue){
 this.IsSafe=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Indicates whether the monitored state is safe for use.
+            
+
 */
 public double getIsSafe(){
 return IsSafe;

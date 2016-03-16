@@ -21,58 +21,81 @@ Objects of class Site contain the specifications for a star's catalog position i
 public class IStar{
 
 /*
-null
-null
+
+                Three character catalog code for the star's data
+            
+Typically "FK5" but may be "HIP". For information only.
 */
 private double Catalog;
 /*
-null
-null
+
+                Mean catalog J2000 declination coordinate (degrees)
+            
+
 */
 private double Declination;
 /*
-null
-null
+
+                The value of delta-T (TT - UT1) to use for reductions.
+            
+If this property is not set, calculations will use an internal function to estimate delta-T.
 */
 private double DeltaT;
 /*
-null
-null
+
+                Ephemeris object used to provide the position of the Earth.
+            
+If this value is not set, an internal Kepler object will be used to determine 
+                Earth ephemeris
 */
 private double EarthEphemeris;
 /*
-null
-null
+
+                The catalog name of the star (50 char max)
+            
+
 */
 private double Name;
 /*
-null
-null
+
+                The catalog number of the star
+            
+
 */
 private double Number;
 /*
-null
-null
+
+                Catalog mean J2000 parallax (arcsec)
+            
+
 */
 private double Parallax;
 /*
-null
-null
+
+                Catalog mean J2000 proper motion in declination (arcsec/century)
+            
+
 */
 private double ProperMotionDec;
 /*
-null
-null
+
+                Catalog mean J2000 proper motion in right ascension (sec/century)
+            
+
 */
 private double ProperMotionRA;
 /*
-null
-null
+
+                Catalog mean J2000 radial velocity (km/sec)
+            
+
 */
 private double RadialVelocity;
 /*
-null
-null
+
+                Catalog mean J2000 right ascension coordinate (hours)
+            
+
 */
 private double RightAscension;
 
@@ -158,176 +181,222 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Three character catalog code for the star's data
+            
+Typically "FK5" but may be "HIP". For information only.
 */
 public void setCatalog(double _theValue){
 this.Catalog=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Three character catalog code for the star's data
+            
+Typically "FK5" but may be "HIP". For information only.
 */
 public double getCatalog(){
 return Catalog;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Mean catalog J2000 declination coordinate (degrees)
+            
+
 */
 public void setDeclination(double _theValue){
 this.Declination=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Mean catalog J2000 declination coordinate (degrees)
+            
+
 */
 public double getDeclination(){
 return Declination;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The value of delta-T (TT - UT1) to use for reductions.
+            
+If this property is not set, calculations will use an internal function to estimate delta-T.
 */
 public void setDeltaT(double _theValue){
 this.DeltaT=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The value of delta-T (TT - UT1) to use for reductions.
+            
+If this property is not set, calculations will use an internal function to estimate delta-T.
 */
 public double getDeltaT(){
 return DeltaT;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Ephemeris object used to provide the position of the Earth.
+            
+If this value is not set, an internal Kepler object will be used to determine 
+                Earth ephemeris
 */
 public void setEarthEphemeris(double _theValue){
 this.EarthEphemeris=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Ephemeris object used to provide the position of the Earth.
+            
+If this value is not set, an internal Kepler object will be used to determine 
+                Earth ephemeris
 */
 public double getEarthEphemeris(){
 return EarthEphemeris;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The catalog name of the star (50 char max)
+            
+
 */
 public void setName(double _theValue){
 this.Name=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The catalog name of the star (50 char max)
+            
+
 */
 public double getName(){
 return Name;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The catalog number of the star
+            
+
 */
 public void setNumber(double _theValue){
 this.Number=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The catalog number of the star
+            
+
 */
 public double getNumber(){
 return Number;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Catalog mean J2000 parallax (arcsec)
+            
+
 */
 public void setParallax(double _theValue){
 this.Parallax=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Catalog mean J2000 parallax (arcsec)
+            
+
 */
 public double getParallax(){
 return Parallax;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Catalog mean J2000 proper motion in declination (arcsec/century)
+            
+
 */
 public void setProperMotionDec(double _theValue){
 this.ProperMotionDec=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Catalog mean J2000 proper motion in declination (arcsec/century)
+            
+
 */
 public double getProperMotionDec(){
 return ProperMotionDec;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Catalog mean J2000 proper motion in right ascension (sec/century)
+            
+
 */
 public void setProperMotionRA(double _theValue){
 this.ProperMotionRA=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Catalog mean J2000 proper motion in right ascension (sec/century)
+            
+
 */
 public double getProperMotionRA(){
 return ProperMotionRA;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Catalog mean J2000 radial velocity (km/sec)
+            
+
 */
 public void setRadialVelocity(double _theValue){
 this.RadialVelocity=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Catalog mean J2000 radial velocity (km/sec)
+            
+
 */
 public double getRadialVelocity(){
 return RadialVelocity;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Catalog mean J2000 right ascension coordinate (hours)
+            
+
 */
 public void setRightAscension(double _theValue){
 this.RightAscension=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Catalog mean J2000 right ascension coordinate (hours)
+            
+
 */
 public double getRightAscension(){
 return RightAscension;

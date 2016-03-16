@@ -12,23 +12,36 @@ package ASCOM.Controls;
 public class LedIndicator{
 
 /*
-null
-null
+
+              Gets or sets the LED's status (which controls its display colour).
+            
+
 */
 private double Status;
 /*
-null
-null
+
+              Sets the text displayed alongside the indicator
+            
+
 */
 private double LabelText;
 /*
-null
-null
+
+              Sets or reads the 'power status' of the LED
+              When the LED is Enabled, it reflects the current colour settings and cadence.
+              When disabled, the LED appears off and cadencing is disabled.
+            
+
 */
 private double Enabled;
 /*
-null
-null
+
+              Gets or sets the LED cadence bitmap.
+              If the cadence has changed and is non-steady and the LED is enabled, then the cadence timer is started.
+            
+
+              Implements the  property.
+            
 */
 private double Cadence;
 
@@ -150,64 +163,90 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets or sets the LED's status (which controls its display colour).
+            
+
 */
 public void setStatus(double _theValue){
 this.Status=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets or sets the LED's status (which controls its display colour).
+            
+
 */
 public double getStatus(){
 return Status;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Sets the text displayed alongside the indicator
+            
+
 */
 public void setLabelText(double _theValue){
 this.LabelText=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Sets the text displayed alongside the indicator
+            
+
 */
 public double getLabelText(){
 return LabelText;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Sets or reads the 'power status' of the LED
+              When the LED is Enabled, it reflects the current colour settings and cadence.
+              When disabled, the LED appears off and cadencing is disabled.
+            
+
 */
 public void setEnabled(double _theValue){
 this.Enabled=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Sets or reads the 'power status' of the LED
+              When the LED is Enabled, it reflects the current colour settings and cadence.
+              When disabled, the LED appears off and cadencing is disabled.
+            
+
 */
 public double getEnabled(){
 return Enabled;
 }
 
 /*
- Sets null
-null
+ Sets 
+              Gets or sets the LED cadence bitmap.
+              If the cadence has changed and is non-steady and the LED is enabled, then the cadence timer is started.
+            
+
+              Implements the  property.
+            
 */
 public void setCadence(double _theValue){
 this.Cadence=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              Gets or sets the LED cadence bitmap.
+              If the cadence has changed and is non-steady and the LED is enabled, then the cadence timer is started.
+            
+
+              Implements the  property.
+            
 */
 public double getCadence(){
 return Cadence;

@@ -15,13 +15,17 @@ This class is used by some Profile properties and methods and
 public class KeyValuePair{
 
 /*
-null
-null
+
+ The Key element of a key value pair
+ 
+
 */
 private double Key;
 /*
-null
-null
+
+ The Value element of a key value pair.
+ 
+
 */
 private double Value;
 
@@ -48,32 +52,40 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The Key element of a key value pair
+ 
+
 */
 public void setKey(double _theValue){
 this.Key=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The Key element of a key value pair
+ 
+
 */
 public double getKey(){
 return Key;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The Value element of a key value pair.
+ 
+
 */
 public void setValue(double _theValue){
 this.Value=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The Value element of a key value pair.
+ 
+
 */
 public double getValue(){
 return Value;

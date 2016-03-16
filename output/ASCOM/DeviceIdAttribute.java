@@ -36,22 +36,26 @@ package ASCOM;
                 
               
             
- */
-public class DeviceIdAttribute {
+*/
+public class DeviceIdAttribute{
 
-    /*
-null
-null
-     */
-    private String DeviceId;
-    /*
-null
-null
-     */
-    private String DeviceName;
+/*
+
+              Gets the ASCOM DeviceID, also known as the COM ProgID.
+            
+
+*/
+private double DeviceId;
+/*
+
+              Gets or sets the display name of the device. This would be the short display name, as displayed in the ASCOM Chooser.
+            
+
+*/
+private double DeviceName;
 
 
-    /*
+/*
 
               Initializes a new instance of the  class.
             
@@ -66,40 +70,48 @@ null
                 In the event that the DeviceName optional parameter is not set, it will return the DeviceId.
               
             
-     */
-    public DeviceIdAttribute(String theString) {
-        setDeviceID(theString);
-    }
+*/
+public void DeviceIdAttribute(String){
+return null;
+}
 
-    /*
- Sets null
-null
-     */
-    public void setDeviceId(String _theValue) {
-        this.DeviceId = _theValue;
-    }
+/*
+ Sets 
+              Gets the ASCOM DeviceID, also known as the COM ProgID.
+            
 
-    /*
- Gets null
-null
-     */
-    public String getDeviceId() {
-        return DeviceId;
-    }
+*/
+public void setDeviceId(double _theValue){
+this.DeviceId=_theValue;
+}
 
-    /*
- Sets null
-null
-     */
-    public void setDeviceName(String _theValue) {
-        this.DeviceName = _theValue;
-    }
+/*
+ Gets 
+              Gets the ASCOM DeviceID, also known as the COM ProgID.
+            
 
-    /*
- Gets null
-null
-     */
-    public String getDeviceName() {
-        return DeviceName;
-    }
+*/
+public double getDeviceId(){
+return DeviceId;
+}
+
+/*
+ Sets 
+              Gets or sets the display name of the device. This would be the short display name, as displayed in the ASCOM Chooser.
+            
+
+*/
+public void setDeviceName(double _theValue){
+this.DeviceName=_theValue;
+}
+
+/*
+ Gets 
+              Gets or sets the display name of the device. This would be the short display name, as displayed in the ASCOM Chooser.
+            
+
+*/
+public double getDeviceName(){
+return DeviceName;
+}
 }

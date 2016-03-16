@@ -14,13 +14,22 @@ package ASCOM.Utilities;
 public class Profile{
 
 /*
-null
-null
+
+ The type of ASCOM device for which profile data and registration services are provided 
+ (String, default = "Telescope")
+ 
+
 */
 private double DeviceType;
 /*
-null
-null
+
+ List the device types registered in the Profile store
+ 
+Use this to find the types of device that are registered in the Profile store.
+ Device types are returned without the suffix " Devices" that is used in key names within the 
+ profile store; this allows direct use of returned device types inside For Each loops as shown in 
+ the Profile code example.
+	
 */
 private double RegisteredDeviceTypes;
 
@@ -396,32 +405,50 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The type of ASCOM device for which profile data and registration services are provided 
+ (String, default = "Telescope")
+ 
+
 */
 public void setDeviceType(double _theValue){
 this.DeviceType=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The type of ASCOM device for which profile data and registration services are provided 
+ (String, default = "Telescope")
+ 
+
 */
 public double getDeviceType(){
 return DeviceType;
 }
 
 /*
- Sets null
-null
+ Sets 
+ List the device types registered in the Profile store
+ 
+Use this to find the types of device that are registered in the Profile store.
+ Device types are returned without the suffix " Devices" that is used in key names within the 
+ profile store; this allows direct use of returned device types inside For Each loops as shown in 
+ the Profile code example.
+	
 */
 public void setRegisteredDeviceTypes(double _theValue){
 this.RegisteredDeviceTypes=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ List the device types registered in the Profile store
+ 
+Use this to find the types of device that are registered in the Profile store.
+ Device types are returned without the suffix " Devices" that is used in key names within the 
+ profile store; this allows direct use of returned device types inside For Each loops as shown in 
+ the Profile code example.
+	
 */
 public double getRegisteredDeviceTypes(){
 return RegisteredDeviceTypes;

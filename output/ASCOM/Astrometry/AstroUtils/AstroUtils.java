@@ -13,13 +13,21 @@ package ASCOM.Astrometry.AstroUtils;
 public class AstroUtils{
 
 /*
-null
-null
+
+                Current Julian date based on the UTC time scale
+            
+
 */
 private double JulianDateUtc;
 /*
-null
-null
+
+                Sets or returns the number of leap seconds used in ASCOM Astrometry functions
+            
+The property value is stored in the ASCOM Profile under the name \Astrometry\Leap Seconds. Any change made to this property 
+                will be persisted to the ASCOM Profile store and will be immediately availble to this and all future instances of AstroUtils.
+                The current value and any announced but not yet actioned change are listed 
+                    here: ftp://hpiers.obspm.fr/iers/bul/bulc/bulletinc.dat
+            
 */
 private double LeapSeconds;
 
@@ -318,32 +326,48 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Current Julian date based on the UTC time scale
+            
+
 */
 public void setJulianDateUtc(double _theValue){
 this.JulianDateUtc=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Current Julian date based on the UTC time scale
+            
+
 */
 public double getJulianDateUtc(){
 return JulianDateUtc;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Sets or returns the number of leap seconds used in ASCOM Astrometry functions
+            
+The property value is stored in the ASCOM Profile under the name \Astrometry\Leap Seconds. Any change made to this property 
+                will be persisted to the ASCOM Profile store and will be immediately availble to this and all future instances of AstroUtils.
+                The current value and any announced but not yet actioned change are listed 
+                    here: ftp://hpiers.obspm.fr/iers/bul/bulc/bulletinc.dat
+            
 */
 public void setLeapSeconds(double _theValue){
 this.LeapSeconds=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Sets or returns the number of leap seconds used in ASCOM Astrometry functions
+            
+The property value is stored in the ASCOM Profile under the name \Astrometry\Leap Seconds. Any change made to this property 
+                will be persisted to the ASCOM Profile store and will be immediately availble to this and all future instances of AstroUtils.
+                The current value and any announced but not yet actioned change are listed 
+                    here: ftp://hpiers.obspm.fr/iers/bul/bulc/bulletinc.dat
+            
 */
 public double getLeapSeconds(){
 return LeapSeconds;

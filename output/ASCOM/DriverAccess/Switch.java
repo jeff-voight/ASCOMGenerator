@@ -34,8 +34,11 @@ package ASCOM.DriverAccess;
 public class Switch{
 
 /*
-null
-null
+
+            Return the number of switch devices managed by this driver
+            
+Must be implemented, must not throw an 
+            Devices are numbered from 0 to  - 1
 */
 private double MaxSwitch;
 
@@ -220,16 +223,22 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+            Return the number of switch devices managed by this driver
+            
+Must be implemented, must not throw an 
+            Devices are numbered from 0 to  - 1
 */
 public void setMaxSwitch(double _theValue){
 this.MaxSwitch=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+            Return the number of switch devices managed by this driver
+            
+Must be implemented, must not throw an 
+            Devices are numbered from 0 to  - 1
 */
 public double getMaxSwitch(){
 return MaxSwitch;

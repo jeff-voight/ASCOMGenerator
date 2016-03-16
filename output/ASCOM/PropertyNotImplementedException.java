@@ -14,13 +14,17 @@ package ASCOM;
 public class PropertyNotImplementedException{
 
 /*
-null
-null
+
+              The property that is not implemented
+            
+
 */
 private double Property;
 /*
-null
-null
+
+              True if the 'set' accessor is not implemented, else false
+            
+
 */
 private double AccessorSet;
 
@@ -92,32 +96,40 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              The property that is not implemented
+            
+
 */
 public void setProperty(double _theValue){
 this.Property=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              The property that is not implemented
+            
+
 */
 public double getProperty(){
 return Property;
 }
 
 /*
- Sets null
-null
+ Sets 
+              True if the 'set' accessor is not implemented, else false
+            
+
 */
 public void setAccessorSet(double _theValue){
 this.AccessorSet=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              True if the 'set' accessor is not implemented, else false
+            
+
 */
 public double getAccessorSet(){
 return AccessorSet;

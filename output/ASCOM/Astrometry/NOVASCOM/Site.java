@@ -13,28 +13,38 @@ NOVAS-COM objects of class Site contain the specifications for an observer's loc
 public class Site{
 
 /*
-null
-null
+
+                Height above mean sea level
+            
+
 */
 private double Height;
 /*
-null
-null
+
+                Geodetic latitude (degrees, + north)
+            
+
 */
 private double Latitude;
 /*
-null
-null
+
+                Geodetic longitude (degrees, + east)
+            
+
 */
 private double Longitude;
 /*
-null
-null
+
+                Barometric pressure (millibars)
+            
+
 */
 private double Pressure;
 /*
-null
-null
+
+                Ambient temperature (deg. Celsius)
+            
+
 */
 private double Temperature;
 
@@ -61,80 +71,100 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Height above mean sea level
+            
+
 */
 public void setHeight(double _theValue){
 this.Height=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Height above mean sea level
+            
+
 */
 public double getHeight(){
 return Height;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Geodetic latitude (degrees, + north)
+            
+
 */
 public void setLatitude(double _theValue){
 this.Latitude=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Geodetic latitude (degrees, + north)
+            
+
 */
 public double getLatitude(){
 return Latitude;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Geodetic longitude (degrees, + east)
+            
+
 */
 public void setLongitude(double _theValue){
 this.Longitude=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Geodetic longitude (degrees, + east)
+            
+
 */
 public double getLongitude(){
 return Longitude;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Barometric pressure (millibars)
+            
+
 */
 public void setPressure(double _theValue){
 this.Pressure=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Barometric pressure (millibars)
+            
+
 */
 public double getPressure(){
 return Pressure;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Ambient temperature (deg. Celsius)
+            
+
 */
 public void setTemperature(double _theValue){
 this.Temperature=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Ambient temperature (deg. Celsius)
+            
+
 */
 public double getTemperature(){
 return Temperature;

@@ -86,83 +86,116 @@ package ASCOM.Astrometry.Kepler;
 public class IEphemeris{
 
 /*
-null
-null
+
+                Semi-major axis (AU)
+            
+
 */
 private double a;
 /*
-null
-null
+
+                The type of solar system body represented by this instance of the ephemeris engine (enum)
+            
+
 */
 private double BodyType;
 /*
-null
-null
+
+                Orbital eccentricity
+            
+
 */
 private double e;
 /*
-null
-null
+
+                Epoch of osculation of the orbital elements (terrestrial Julian date)
+            
+
 */
 private double Epoch;
 /*
-null
-null
+
+                Slope parameter for magnitude
+            
+
 */
 private double G;
 /*
-null
-null
+
+                Absolute visual magnitude
+            
+
 */
 private double H;
 /*
-null
-null
+
+                The J2000.0 inclination (deg.)
+            
+
 */
 private double Incl;
 /*
-null
-null
+
+                Mean anomaly at the epoch
+            
+
 */
 private double M;
 /*
-null
-null
+
+                Mean daily motion (deg/day)
+            
+
 */
 private double n;
 /*
-null
-null
+
+                The name of the body.
+            
+If this instance represents an unnumbered minor planet, Ephemeris.Name must be the 
+                packed MPC designation. For other types, this is for display only.
 */
 private double Name;
 /*
-null
-null
+
+                The J2000.0 longitude of the ascending node (deg.)
+            
+
 */
 private double Node;
 /*
-null
-null
+
+                The major or minor planet number
+            
+
 */
 private double Number;
 /*
-null
-null
+
+                Orbital period (years)
+            
+
 */
 private double P;
 /*
-null
-null
+
+                The J2000.0 argument of perihelion (deg.)
+            
+
 */
 private double Peri;
 /*
-null
-null
+
+                Perihelion distance (AU)
+            
+
 */
 private double q;
 /*
-null
-null
+
+                Reciprocal semi-major axis (1/AU)
+            
+
 */
 private double z;
 
@@ -182,256 +215,322 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Semi-major axis (AU)
+            
+
 */
 public void setA(double _theValue){
 this.a=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Semi-major axis (AU)
+            
+
 */
 public double getA(){
 return a;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The type of solar system body represented by this instance of the ephemeris engine (enum)
+            
+
 */
 public void setBodyType(double _theValue){
 this.BodyType=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The type of solar system body represented by this instance of the ephemeris engine (enum)
+            
+
 */
 public double getBodyType(){
 return BodyType;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Orbital eccentricity
+            
+
 */
 public void setE(double _theValue){
 this.e=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Orbital eccentricity
+            
+
 */
 public double getE(){
 return e;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Epoch of osculation of the orbital elements (terrestrial Julian date)
+            
+
 */
 public void setEpoch(double _theValue){
 this.Epoch=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Epoch of osculation of the orbital elements (terrestrial Julian date)
+            
+
 */
 public double getEpoch(){
 return Epoch;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Slope parameter for magnitude
+            
+
 */
 public void setG(double _theValue){
 this.G=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Slope parameter for magnitude
+            
+
 */
 public double getG(){
 return G;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Absolute visual magnitude
+            
+
 */
 public void setH(double _theValue){
 this.H=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Absolute visual magnitude
+            
+
 */
 public double getH(){
 return H;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The J2000.0 inclination (deg.)
+            
+
 */
 public void setIncl(double _theValue){
 this.Incl=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The J2000.0 inclination (deg.)
+            
+
 */
 public double getIncl(){
 return Incl;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Mean anomaly at the epoch
+            
+
 */
 public void setM(double _theValue){
 this.M=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Mean anomaly at the epoch
+            
+
 */
 public double getM(){
 return M;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Mean daily motion (deg/day)
+            
+
 */
 public void setN(double _theValue){
 this.n=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Mean daily motion (deg/day)
+            
+
 */
 public double getN(){
 return n;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The name of the body.
+            
+If this instance represents an unnumbered minor planet, Ephemeris.Name must be the 
+                packed MPC designation. For other types, this is for display only.
 */
 public void setName(double _theValue){
 this.Name=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The name of the body.
+            
+If this instance represents an unnumbered minor planet, Ephemeris.Name must be the 
+                packed MPC designation. For other types, this is for display only.
 */
 public double getName(){
 return Name;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The J2000.0 longitude of the ascending node (deg.)
+            
+
 */
 public void setNode(double _theValue){
 this.Node=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The J2000.0 longitude of the ascending node (deg.)
+            
+
 */
 public double getNode(){
 return Node;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The major or minor planet number
+            
+
 */
 public void setNumber(double _theValue){
 this.Number=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The major or minor planet number
+            
+
 */
 public double getNumber(){
 return Number;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Orbital period (years)
+            
+
 */
 public void setP(double _theValue){
 this.P=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Orbital period (years)
+            
+
 */
 public double getP(){
 return P;
 }
 
 /*
- Sets null
-null
+ Sets 
+                The J2000.0 argument of perihelion (deg.)
+            
+
 */
 public void setPeri(double _theValue){
 this.Peri=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                The J2000.0 argument of perihelion (deg.)
+            
+
 */
 public double getPeri(){
 return Peri;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Perihelion distance (AU)
+            
+
 */
 public void setQ(double _theValue){
 this.q=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Perihelion distance (AU)
+            
+
 */
 public double getQ(){
 return q;
 }
 
 /*
- Sets null
-null
+ Sets 
+                Reciprocal semi-major axis (1/AU)
+            
+
 */
 public void setZ(double _theValue){
 this.z=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+                Reciprocal semi-major axis (1/AU)
+            
+
 */
 public double getZ(){
 return z;

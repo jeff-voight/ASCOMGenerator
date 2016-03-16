@@ -10,13 +10,17 @@ package ASCOM.DeviceInterface;
 public class ITrackingRates{
 
 /*
-null
-null
+
+ Returns a specified item from the collection
+ 
+This is only used by telescope interface versions 2 and 3
 */
 private double Item;
 /*
-null
-null
+
+ Number of DriveRates supported by the Telescope
+ 
+
 */
 private double Count;
 
@@ -43,32 +47,40 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Returns a specified item from the collection
+ 
+This is only used by telescope interface versions 2 and 3
 */
 public void setItem(double _theValue){
 this.Item=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Returns a specified item from the collection
+ 
+This is only used by telescope interface versions 2 and 3
 */
 public double getItem(){
 return Item;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Number of DriveRates supported by the Telescope
+ 
+
 */
 public void setCount(double _theValue){
 this.Count=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Number of DriveRates supported by the Telescope
+ 
+
 */
 public double getCount(){
 return Count;

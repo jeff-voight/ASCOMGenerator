@@ -13,8 +13,10 @@ package ASCOM;
 public class MethodNotImplementedException{
 
 /*
-null
-null
+
+              The method that is not implemented
+            
+
 */
 private double Method;
 
@@ -64,16 +66,20 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              The method that is not implemented
+            
+
 */
 public void setMethod(double _theValue){
 this.Method=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              The method that is not implemented
+            
+
 */
 public double getMethod(){
 return Method;

@@ -13,43 +13,55 @@ This is a return type only used by a small number of the Profile.XXXCOM commands
 public class IKeyValuePair{
 
 /*
-null
-null
+
+ Key member of a key value pair
+ 
+
 */
 private double Key;
 /*
-null
-null
+
+ Value memeber of a key value pair
+ 
+
 */
 private double Value;
 
 /*
- Sets null
-null
+ Sets 
+ Key member of a key value pair
+ 
+
 */
 public void setKey(double _theValue){
 this.Key=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Key member of a key value pair
+ 
+
 */
 public double getKey(){
 return Key;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Value memeber of a key value pair
+ 
+
 */
 public void setValue(double _theValue){
 this.Value=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Value memeber of a key value pair
+ 
+
 */
 public double getValue(){
 return Value;

@@ -10,8 +10,10 @@ package ASCOM;
 public class ValueNotSetException{
 
 /*
-null
-null
+
+              The property/accessor or method that has no value
+            
+
 */
 private double PropertyOrMethod;
 
@@ -61,16 +63,20 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              The property/accessor or method that has no value
+            
+
 */
 public void setPropertyOrMethod(double _theValue){
 this.PropertyOrMethod=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              The property/accessor or method that has no value
+            
+
 */
 public double getPropertyOrMethod(){
 return PropertyOrMethod;

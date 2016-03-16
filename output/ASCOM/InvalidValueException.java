@@ -13,18 +13,24 @@ package ASCOM;
 public class InvalidValueException{
 
 /*
-null
-null
+
+              The property/accessor or method that has an invalid value.
+            
+
 */
 private double PropertyOrMethod;
 /*
-null
-null
+
+              The invalid value.
+            
+
 */
 private double Value;
 /*
-null
-null
+
+              The valid range for this property.
+            
+
 */
 private double Range;
 
@@ -96,48 +102,60 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+              The property/accessor or method that has an invalid value.
+            
+
 */
 public void setPropertyOrMethod(double _theValue){
 this.PropertyOrMethod=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              The property/accessor or method that has an invalid value.
+            
+
 */
 public double getPropertyOrMethod(){
 return PropertyOrMethod;
 }
 
 /*
- Sets null
-null
+ Sets 
+              The invalid value.
+            
+
 */
 public void setValue(double _theValue){
 this.Value=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              The invalid value.
+            
+
 */
 public double getValue(){
 return Value;
 }
 
 /*
- Sets null
-null
+ Sets 
+              The valid range for this property.
+            
+
 */
 public void setRange(double _theValue){
 this.Range=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+              The valid range for this property.
+            
+
 */
 public double getRange(){
 return Range;

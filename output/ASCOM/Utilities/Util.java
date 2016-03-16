@@ -10,58 +10,94 @@ package ASCOM.Utilities;
 public class Util{
 
 /*
-null
-null
+
+ Current Platform version in Major.Minor form
+ 
+Please be careful if you wish to convert this string into a number within your application 
+ because the ASCOM Platform is used internationally and some countries use characters other 
+ than point as the decimal separator. 
+ If your application tries to convert 5.5 into a Double value when running on a PC localised to 
+ France, you will get an exception because the French decimal separater is comma and 5.5 is not 
+ a valid representation of a decimal number in that locale.
+		If you still wish to turn the Platform Version into a Double value, you can use an 
+ approach such as this:
+		If Double.Parse(Util.PlatformVersion, CultureInfo.InvariantCulture) < 5.5 Then...
+		If you just wish to test whether the platform is greater than a particular level,
+ you can use the IsMinimumRequiredVersion method.
+	
 */
 private double PlatformVersion;
 /*
-null
-null
+
+ Change the serial trace file (default C:\SerialTrace.txt)
+ 
+Change this before setting the SerialTrace property to True. 
 */
 private double SerialTraceFile;
 /*
-null
-null
+
+ Enable/disable serial I/O tracing
+ 
+If you want to change the serial trace file path, change the SerialTraceFile property before setting this to True. 
+ After setting this to True, serial trace info will be written to the last-set serial trace file. 
 */
 private double SerialTrace;
 /*
-null
-null
+
+ The name of the computer's time zone
+ 
+This will be in the local language of the operating system, and will reflect any daylight/summer time that may be in 
+ effect. 
 */
 private double TimeZoneName;
 /*
-null
-null
+
+ UTC offset (hours) for the computer's clock
+ 
+The offset is in hours, such that UTC = local + offset. The offset includes any daylight/summer time that may be 
+ in effect.
 */
 private double TimeZoneOffset;
 /*
-null
-null
+
+ The current UTC Date
+ 
+
 */
 private double UTCDate;
 /*
-null
-null
+
+ Current Julian date
+ 
+This is quantised to the second in the COM component but to a small decimal fraction in the .NET component
 */
 private double JulianDate;
 /*
-null
-null
+
+ Platform major version number
+ 
+
 */
 private double MajorVersion;
 /*
-null
-null
+
+ Platform minor version number
+ 
+
 */
 private double MinorVersion;
 /*
-null
-null
+
+ Platform service pack number
+ 
+
 */
 private double ServicePack;
 /*
-null
-null
+
+ Platform build number
+ 
+
 */
 private double BuildNumber;
 
@@ -804,176 +840,248 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Current Platform version in Major.Minor form
+ 
+Please be careful if you wish to convert this string into a number within your application 
+ because the ASCOM Platform is used internationally and some countries use characters other 
+ than point as the decimal separator. 
+ If your application tries to convert 5.5 into a Double value when running on a PC localised to 
+ France, you will get an exception because the French decimal separater is comma and 5.5 is not 
+ a valid representation of a decimal number in that locale.
+		If you still wish to turn the Platform Version into a Double value, you can use an 
+ approach such as this:
+		If Double.Parse(Util.PlatformVersion, CultureInfo.InvariantCulture) < 5.5 Then...
+		If you just wish to test whether the platform is greater than a particular level,
+ you can use the IsMinimumRequiredVersion method.
+	
 */
 public void setPlatformVersion(double _theValue){
 this.PlatformVersion=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Current Platform version in Major.Minor form
+ 
+Please be careful if you wish to convert this string into a number within your application 
+ because the ASCOM Platform is used internationally and some countries use characters other 
+ than point as the decimal separator. 
+ If your application tries to convert 5.5 into a Double value when running on a PC localised to 
+ France, you will get an exception because the French decimal separater is comma and 5.5 is not 
+ a valid representation of a decimal number in that locale.
+		If you still wish to turn the Platform Version into a Double value, you can use an 
+ approach such as this:
+		If Double.Parse(Util.PlatformVersion, CultureInfo.InvariantCulture) < 5.5 Then...
+		If you just wish to test whether the platform is greater than a particular level,
+ you can use the IsMinimumRequiredVersion method.
+	
 */
 public double getPlatformVersion(){
 return PlatformVersion;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Change the serial trace file (default C:\SerialTrace.txt)
+ 
+Change this before setting the SerialTrace property to True. 
 */
 public void setSerialTraceFile(double _theValue){
 this.SerialTraceFile=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Change the serial trace file (default C:\SerialTrace.txt)
+ 
+Change this before setting the SerialTrace property to True. 
 */
 public double getSerialTraceFile(){
 return SerialTraceFile;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Enable/disable serial I/O tracing
+ 
+If you want to change the serial trace file path, change the SerialTraceFile property before setting this to True. 
+ After setting this to True, serial trace info will be written to the last-set serial trace file. 
 */
 public void setSerialTrace(double _theValue){
 this.SerialTrace=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Enable/disable serial I/O tracing
+ 
+If you want to change the serial trace file path, change the SerialTraceFile property before setting this to True. 
+ After setting this to True, serial trace info will be written to the last-set serial trace file. 
 */
 public double getSerialTrace(){
 return SerialTrace;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The name of the computer's time zone
+ 
+This will be in the local language of the operating system, and will reflect any daylight/summer time that may be in 
+ effect. 
 */
 public void setTimeZoneName(double _theValue){
 this.TimeZoneName=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The name of the computer's time zone
+ 
+This will be in the local language of the operating system, and will reflect any daylight/summer time that may be in 
+ effect. 
 */
 public double getTimeZoneName(){
 return TimeZoneName;
 }
 
 /*
- Sets null
-null
+ Sets 
+ UTC offset (hours) for the computer's clock
+ 
+The offset is in hours, such that UTC = local + offset. The offset includes any daylight/summer time that may be 
+ in effect.
 */
 public void setTimeZoneOffset(double _theValue){
 this.TimeZoneOffset=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ UTC offset (hours) for the computer's clock
+ 
+The offset is in hours, such that UTC = local + offset. The offset includes any daylight/summer time that may be 
+ in effect.
 */
 public double getTimeZoneOffset(){
 return TimeZoneOffset;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The current UTC Date
+ 
+
 */
 public void setUTCDate(double _theValue){
 this.UTCDate=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The current UTC Date
+ 
+
 */
 public double getUTCDate(){
 return UTCDate;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Current Julian date
+ 
+This is quantised to the second in the COM component but to a small decimal fraction in the .NET component
 */
 public void setJulianDate(double _theValue){
 this.JulianDate=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Current Julian date
+ 
+This is quantised to the second in the COM component but to a small decimal fraction in the .NET component
 */
 public double getJulianDate(){
 return JulianDate;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Platform major version number
+ 
+
 */
 public void setMajorVersion(double _theValue){
 this.MajorVersion=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Platform major version number
+ 
+
 */
 public double getMajorVersion(){
 return MajorVersion;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Platform minor version number
+ 
+
 */
 public void setMinorVersion(double _theValue){
 this.MinorVersion=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Platform minor version number
+ 
+
 */
 public double getMinorVersion(){
 return MinorVersion;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Platform service pack number
+ 
+
 */
 public void setServicePack(double _theValue){
 this.ServicePack=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Platform service pack number
+ 
+
 */
 public double getServicePack(){
 return ServicePack;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Platform build number
+ 
+
 */
 public void setBuildNumber(double _theValue){
 this.BuildNumber=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Platform build number
+ 
+
 */
 public double getBuildNumber(){
 return BuildNumber;

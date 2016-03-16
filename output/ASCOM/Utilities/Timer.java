@@ -23,13 +23,17 @@ package ASCOM.Utilities;
 public class Timer{
 
 /*
-null
-null
+
+ The interval between Tick events when the timer is Enabled in milliseconds, (default = 1000)
+ 
+
 */
 private double Interval;
 /*
-null
-null
+
+ Enable the timer tick events
+ 
+
 */
 private double Enabled;
 
@@ -78,32 +82,40 @@ return null;
 }
 
 /*
- Sets null
-null
+ Sets 
+ The interval between Tick events when the timer is Enabled in milliseconds, (default = 1000)
+ 
+
 */
 public void setInterval(double _theValue){
 this.Interval=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ The interval between Tick events when the timer is Enabled in milliseconds, (default = 1000)
+ 
+
 */
 public double getInterval(){
 return Interval;
 }
 
 /*
- Sets null
-null
+ Sets 
+ Enable the timer tick events
+ 
+
 */
 public void setEnabled(double _theValue){
 this.Enabled=_theValue;
 }
 
 /*
- Gets null
-null
+ Gets 
+ Enable the timer tick events
+ 
+
 */
 public double getEnabled(){
 return Enabled;
